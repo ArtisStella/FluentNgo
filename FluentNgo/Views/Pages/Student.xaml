@@ -7,11 +7,78 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="Student"
-    d:DesignHeight="450"
-    d:DesignWidth="800"
     mc:Ignorable="d">
 
+    <ui:UiPage.Resources>
+        <Style x:Key="CellStyle" 
+               BasedOn="{StaticResource {x:Type DataGridCell}}"
+               TargetType="{x:Type DataGridCell}">
+            <Setter Property="Focusable" Value="False"/>
+        </Style>
+    </ui:UiPage.Resources>
+    
     <Grid>
-        <TextBlock Text="The cake is a lie!" />
+        <ui:Card VerticalAlignment="Stretch">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+
+                <!--HEADER-->
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+
+                    <!--SEARCH BAR-->
+
+                    <!--Add a search bar here-->
+                    <ui:TextBox Grid.Column="0"
+                                Margin="16"
+                                PlaceholderText="Search"
+                                HorizontalAlignment="Left"
+                                Icon="Search20"
+                                MaxWidth="240"
+                                MinWidth="240"/>
+
+
+                    <!--BUTTONS-->
+                    <StackPanel Margin="16 0" Grid.Column="1" Orientation="Horizontal">
+                        <ui:Button x:Name="AddButton" 
+                                Height="32" Width="32"
+                                Icon="Add16"
+                                Padding="0">
+                            <!--Add Icon-->
+                        </ui:Button>
+
+
+                        <ui:Button x:Name="RemoveButton" 
+                                Height="32" Width="32" 
+                                Margin="8 0 0 0" Padding="0" 
+                                Icon="Delete16"
+                                IsEnabled="False">
+                            <!--Add Icon-->
+                        </ui:Button>
+
+
+                        <ui:Button x:Name="EditButton" 
+                                Height="32" Width="32" 
+                                Margin="8 0 0 0" Padding="0"
+                                Icon="Edit16"
+                                IsEnabled="False">
+
+                            <!--Add Icon-->
+                        </ui:Button>
+                    </StackPanel>
+
+                </Grid>
+
+            </Grid> 
+        </ui:Card>
     </Grid>
 </ui:UiPage>

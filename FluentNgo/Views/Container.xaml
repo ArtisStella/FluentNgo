@@ -13,8 +13,11 @@
     d:DesignHeight="650"
     d:DesignWidth="900"
     ExtendsContentIntoTitleBar="True"
+    WindowStyle="None"
+    AllowsTransparency="True"
     WindowBackdropType="Mica"
     WindowCornerPreference="Round"
+    WindowStartupLocation="CenterScreen"
     Background="{ui:ThemeResource ApplicationBackgroundBrush}"
     Title="Container">
     
@@ -109,9 +112,9 @@
                 </Grid.RowDefinitions>
                 <ui:Breadcrumb
                     Grid.Row="0"
-                    Margin="0,0,0,18"
+                    Margin="0 0 0 32"
                     Navigation="{Binding ElementName=RootNavigation}" />
-                <Frame x:Name="RootFrame" Grid.Row="1" />
+                <Frame x:Name="RootFrame" Grid.Row="1" Padding="32 0 32 56"/>
             </Grid>
         </Grid>
         <ui:TitleBar
