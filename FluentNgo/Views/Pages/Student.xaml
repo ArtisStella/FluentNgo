@@ -16,9 +16,9 @@
             <Setter Property="Focusable" Value="False"/>
         </Style>
     </ui:UiPage.Resources>
-    
+
     <Grid>
-        <ui:Card VerticalAlignment="Stretch">
+        <ui:Card VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Padding="0">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
@@ -75,9 +75,43 @@
                             <!--Add Icon-->
                         </ui:Button>
                     </StackPanel>
-
                 </Grid>
 
+                <!--DATA GRID-->
+                <DataGrid Grid.Row="1" x:Name="StudentsDG"
+                          ItemsSource="{Binding Path=Items}"
+                          AutoGenerateColumns="False"
+                          CanUserAddRows="False"
+                          CanUserReorderColumns="False"
+                          MouseLeftButtonDown="StudentsDG_MouseLeftButtonDown"
+                          IsReadOnly="True">
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="GR No"
+                                            CanUserResize="False"
+                                            Binding="{Binding GrNo}"/>
+
+
+                        <DataGridTextColumn Header="Name"
+                                            CanUserResize="False"
+                                            Binding="{Binding Name}"/>
+
+
+                        <DataGridTextColumn Header="Father Name"
+                                            CanUserResize="False"
+                                            Binding="{Binding FatherName}"/>
+
+
+                        <DataGridTextColumn Header="Class"
+                                            CanUserResize="False"
+                                            Binding="{Binding Class}"/>
+
+
+                        <DataGridTextColumn Header="Schooling Type"
+                                            CanUserResize="False"
+                                            Binding="{Binding SchoolingType}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
             </Grid> 
         </ui:Card>
     </Grid>

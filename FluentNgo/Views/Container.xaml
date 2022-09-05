@@ -19,9 +19,9 @@
     WindowCornerPreference="Round"
     WindowStartupLocation="CenterScreen"
     Background="{ui:ThemeResource ApplicationBackgroundBrush}"
-    Title="Container">
+    Title="Container" MouseDown="UiWindow_MouseDown">
     
-    <Grid>
+    <Grid x:Name="MainGrid" Focusable="True">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="299*"/>
             <ColumnDefinition/>

@@ -11,5 +11,10 @@ namespace FluentNgo.Views
         {
             InitializeComponent();
         }
+
+        private void UiWindow_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            MainGrid.Focus();
+        }
     }
 }
