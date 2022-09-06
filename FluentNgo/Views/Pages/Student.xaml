@@ -55,28 +55,26 @@
                         <ui:Button x:Name="AddButton" 
                                 Height="32" Width="32"
                                 Icon="Add16"
-                                Padding="0">
-                            <!--Add Icon-->
-                        </ui:Button>
-
+                                Padding="0" />
 
                         <ui:Button x:Name="RemoveButton" 
                                 Height="32" Width="32" 
                                 Margin="8 0 0 0" Padding="0" 
                                 Icon="Delete16"
-                                IsEnabled="False">
-                            <!--Add Icon-->
-                        </ui:Button>
-
+                                IsEnabled="False" />
 
                         <ui:Button x:Name="EditButton" 
                                 Height="32" Width="32" 
                                 Margin="8 0 0 0" Padding="0"
                                 Icon="Edit16"
-                                IsEnabled="False">
+                                IsEnabled="False" />
 
-                            <!--Add Icon-->
-                        </ui:Button>
+                        <ui:Button x:Name="RefreshButton" 
+                                Height="32" Width="32" 
+                                Margin="8 0 0 0" Padding="0"
+                                Icon="ArrowClockwise16"
+                                Click="RefreshButton_Click"
+                                IsEnabled="True" />
                     </StackPanel>
                 </Grid>
 
