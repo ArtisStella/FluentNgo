@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Data\MainDatabase.db" />
     <None Remove="Resources\fluent-ui-microsoft.png" />
     <None Remove="Resources\geo_icons.png" />
     <None Remove="Resources\halo_infinite.jpg" />
@@ -26,7 +27,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Data\MainDatabase.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.123" />
     <PackageReference Include="MaterialDesignThemes" Version="4.5.0" />
+    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.116" />
     <PackageReference Include="WPF-UI" Version="2.0.2" />
   </ItemGroup>
 
@@ -49,14 +58,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="Views\Pages\Donor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Pages\Student.xaml.cs">
+    <Compile Update="Views\Pages\StudentView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -66,7 +71,7 @@
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Pages\Student.xaml">
+    <Page Update="Views\Pages\StudentView.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>

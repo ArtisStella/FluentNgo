@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Dapper;
+using System.Data.SQLite;
 using System.Collections.Generic;
-using System.Text;
 
 namespace FluentNgo.Models
 {
@@ -49,6 +49,17 @@ namespace FluentNgo.Models
         public string Email { get; set; }
         public string SchoolingType { get; set; }
         public string Grades { get; set; }
+
+
+        public static List<Student> StudentGetAll()
+        {
+            using (var Connection = new SQLiteConnection(App.ConnectionString))
+            {
+                var output = Connection.Query<Student>("SELECT * FROM Students", new DynamicParameters());
+
+                return output.AsList();
+            }
+        }
     }
 }
 
