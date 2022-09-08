@@ -1,5 +1,5 @@
 ﻿<ui:UiPage
-    x:Class="FluentNgo.Views.Pages.Student"
+    x:Class="FluentNgo.Views.Pages.StudentView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -9,7 +9,7 @@
     xmlns:vm="clr-namespace:FluentNgo.ViewModels"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
     d:DataContext="{d:DesignInstance Type=vm:StudentViewModel}"
-    Title="Student"
+    Title="StudentView"
     mc:Ignorable="d">
 
     <ui:UiPage.Resources>
@@ -43,6 +43,7 @@
                     <!--Add a search bar here-->
                     <ui:TextBox Grid.Column="0"
                                 Margin="16"
+                                x:Name="SearchBox"
                                 PlaceholderText="Search"
                                 HorizontalAlignment="Left"
                                 Icon="Search20"
@@ -80,7 +81,7 @@
 
                 <!--DATA GRID-->
                 <DataGrid Grid.Row="1" x:Name="StudentsDG"
-                          ItemsSource="{Binding Path=Items}"
+                          ItemsSource="{Binding Path=Students}"
                           AutoGenerateColumns="False"
                           CanUserAddRows="False"
                           CanUserReorderColumns="False"

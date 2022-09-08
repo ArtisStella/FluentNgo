@@ -15,7 +15,7 @@ namespace FluentNgo.ViewModels
                 if (value == _students)
                     return;
                 _students = value;
-                OnPropertyChanged("Name");
+                OnPropertyChanged("Students");
             }
         }
     }

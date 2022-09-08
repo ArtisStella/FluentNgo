@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FluentNgo.Models;
+using System;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -6,17 +8,22 @@ using System.Windows.Input;
 
 namespace FluentNgo.Views.Pages;
 
-public partial class Student
+public partial class StudentView
 {
-    public Student()
+    public StudentView()
     {
         InitializeComponent();
-        MessageBox.Show("Student!");
+        StudentsDG.ItemsSource = new ObservableCollection<Student>(Student.StudentGetAll());
+        // MessageBox.Show("Student First");
     }
 
     private void StudentsDG_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
     {
-
+        if (sender != null)
+        {
+            DataGrid? dataGrid = (sender as DataGrid);
+            dataGrid.UnselectAll();
+        }
     }
 
     private void Row_Click(object sender, MouseButtonEventArgs e)
@@ -33,5 +40,7 @@ public partial class Student
         {
             column.SortDirection = null;
         }
+        StudentsDG.UnselectAll();
+        SearchBox.Text = "";
     }
 }

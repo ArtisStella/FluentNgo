@@ -1,4 +1,5 @@
-﻿using Wpf.Ui.Controls;
+﻿using System;
+using Wpf.Ui.Controls;
 
 namespace FluentNgo.Views
 {
@@ -10,6 +11,7 @@ namespace FluentNgo.Views
         public Container()
         {
             InitializeComponent();
+            DateTB.Text = DateTime.Now.ToString("MMM dd, yyyy");
         }
 
         private void UiWindow_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
