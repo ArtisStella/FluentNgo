@@ -6,12 +6,15 @@
     xmlns:local="clr-namespace:FluentNgo.Views.Pages"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    xmlns:vm="clr-namespace:FluentNgo.ViewModels"
-    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
-    d:DataContext="{d:DesignInstance Type=vm:StudentViewModel}"
+    xmlns:viewModel="clr-namespace:FluentNgo.ViewModels"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     Title="StudentView"
     mc:Ignorable="d">
 
+    <ui:UiPage.DataContext>
+        <viewModel:StudentViewModel/>
+    </ui:UiPage.DataContext>
+    
     <ui:UiPage.Resources>
         <Style x:Key="CellStyle" 
                BasedOn="{StaticResource {x:Type DataGridCell}}"
@@ -96,11 +99,13 @@
 
                         <DataGridTextColumn Header="Name"
                                             CanUserResize="False"
+                                            Width="*"
                                             Binding="{Binding Name}"/>
 
 
                         <DataGridTextColumn Header="Father Name"
                                             CanUserResize="False"
+                                            Width="*"
                                             Binding="{Binding FatherName}"/>
 
 

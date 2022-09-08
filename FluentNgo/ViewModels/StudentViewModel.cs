@@ -18,5 +18,10 @@ namespace FluentNgo.ViewModels
                 OnPropertyChanged("Students");
             }
         }
+
+        public StudentViewModel()
+        {
+            Students = new ObservableCollection<Student>(Student.StudentGetAll());
+        }
     }
 }
