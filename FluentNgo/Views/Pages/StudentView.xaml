@@ -65,13 +65,13 @@
                                 Height="32" Width="32" 
                                 Margin="8 0 0 0" Padding="0" 
                                 Icon="Delete16"
-                                IsEnabled="False" />
+                                IsEnabled="{Binding AnyRowSelected}" />
 
                         <ui:Button x:Name="EditButton" 
                                 Height="32" Width="32" 
                                 Margin="8 0 0 0" Padding="0"
                                 Icon="Edit16"
-                                IsEnabled="False" />
+                                IsEnabled="{Binding AnyRowSelected}" />
 
                         <ui:Button x:Name="RefreshButton" 
                                 Height="32" Width="32" 
@@ -89,8 +89,16 @@
                           CanUserAddRows="False"
                           CanUserReorderColumns="False"
                           MouseLeftButtonDown="StudentsDG_MouseLeftButtonDown"
-                          IsReadOnly="True">
-
+                          SelectionUnit="FullRow"
+                          IsReadOnly="True" SelectionChanged="StudentsDG_SelectionChanged">
+                    
+                    <DataGrid.CellStyle>
+                        <Style TargetType="DataGridCell" BasedOn="{StaticResource {x:Type DataGridCell}}">
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                        </Style>
+                    </DataGrid.CellStyle>
+                    
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="GR No"
                                             CanUserResize="False"

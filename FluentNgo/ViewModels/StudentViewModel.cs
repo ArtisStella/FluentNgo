@@ -1,6 +1,8 @@
 ﻿using FluentNgo.Core;
 using FluentNgo.Models;
 using System.Collections.ObjectModel;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace FluentNgo.ViewModels
 {
@@ -19,9 +21,22 @@ namespace FluentNgo.ViewModels
             }
         }
 
+        private bool _anyRowSelected;
+        public bool AnyRowSelected
+        {
+            get { return _anyRowSelected; }
+            set
+            {
+                if (value == _anyRowSelected) return;
+                _anyRowSelected = value;
+                OnPropertyChanged("AnyRowSelected");
+            }
+        }
         public StudentViewModel()
         {
             Students = new ObservableCollection<Student>(Student.StudentGetAll());
+            AnyRowSelected = false;
         }
+
     }
 }

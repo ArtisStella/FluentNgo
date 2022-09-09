@@ -1,4 +1,5 @@
 ﻿using FluentNgo.Models;
+using FluentNgo.ViewModels;
 using System;
 using System.Collections.ObjectModel;
 using System.Windows;
@@ -21,8 +22,7 @@ public partial class StudentView
     {
         if (sender != null)
         {
-            DataGrid? dataGrid = (sender as DataGrid);
-            dataGrid.UnselectAll();
+            (sender as DataGrid)?.UnselectAll(); ;
         }
     }
 
@@ -42,5 +42,16 @@ public partial class StudentView
         }
         StudentsDG.UnselectAll();
         SearchBox.Text = "";
+    }
+
+    private void StudentsDG_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (sender != null)
+        {
+            StudentViewModel studentVm = (StudentViewModel)this.DataContext;
+            DataGrid dg = (DataGrid)sender;
+            studentVm.AnyRowSelected = dg.SelectedItems.Count > 0;
+        }
+
     }
 }
