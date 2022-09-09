@@ -54,4 +54,10 @@ public partial class StudentView
         }
 
     }
+
+    private void AddButton_Click(object sender, RoutedEventArgs e)
+    {
+        StudentViewModel studentVm = (StudentViewModel)this.DataContext;
+        studentVm.AddStudent();
+    }
 }

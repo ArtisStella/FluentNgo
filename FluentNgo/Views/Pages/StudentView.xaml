@@ -56,10 +56,9 @@
 
                     <!--BUTTONS-->
                     <StackPanel Margin="16 0" Grid.Column="1" Orientation="Horizontal">
-                        <ui:Button x:Name="AddButton" 
-                                Height="32" Width="32"
-                                Icon="Add16"
-                                Padding="0" />
+                        <ui:Button  Height="32" Width="32"
+                                    Icon="Add16"
+                                    Padding="0" Click="AddButton_Click"/>
 
                         <ui:Button x:Name="RemoveButton" 
                                 Height="32" Width="32" 

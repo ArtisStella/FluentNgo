@@ -1,5 +1,6 @@
 ﻿using FluentNgo.Core;
 using FluentNgo.Models;
+using FluentNgo.Views.Components;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -38,5 +39,11 @@ namespace FluentNgo.ViewModels
             AnyRowSelected = false;
         }
 
+        public void AddStudent()
+        {
+            var studentForm = new StudentForm();
+            studentForm.Owner = Window.GetWindow(Application.Current.MainWindow);
+            studentForm.ShowDialog();
+        }
     }
 }
