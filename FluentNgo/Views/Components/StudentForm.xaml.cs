@@ -20,6 +20,13 @@ namespace FluentNgo.Views.Components
             DataContext = this;
         }
 
+        public StudentForm(Student stud)
+        {
+            InitializeComponent();
+            student = stud;
+            DataContext = this;
+        }
+
         private void CloseWindow(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
