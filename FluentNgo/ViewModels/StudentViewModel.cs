@@ -48,10 +48,21 @@ namespace FluentNgo.ViewModels
             rootWindow.MainGrid.Effect = new BlurEffect();
             studentForm.Owner = rootWindow;
 
-            studentForm.ShowDialog();
+            if ((bool)studentForm.ShowDialog())
+            {
+                Student oStudent = studentForm.student;
+                oStudent.StudentSave();
+                Students.Add(oStudent);
+            }
+            
 
             // MessageBox.Show(studentForm.student.GrNo.ToString());
             rootWindow.MainGrid.Effect = null;
+        }
+
+        public void RemoveStudent(Student student)
+        {
+            student.DeleteStudent();
         }
     }
 }

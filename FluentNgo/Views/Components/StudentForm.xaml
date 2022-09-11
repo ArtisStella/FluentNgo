@@ -123,7 +123,7 @@
                                     Height="40"
                                     FontSize="14"
                                     materialDesign:HintAssist.Hint="Date of Birth"
-                                    Text="{Binding student.DOB}"
+                                    SelectedDate="{Binding student.DOB}"
                                     Margin="0 0 0 8"
                                     Style="{StaticResource MaterialDesignDatePicker}"/>
 
@@ -139,11 +139,14 @@
                                     MaxLength="11"/>
 
                                 <ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                                      materialDesign:HintAssist.Hint="Religion">
+                                      materialDesign:HintAssist.Hint="Religion"
+                                      SelectionChanged="Religion_SelectionChanged">
+                                
                                     <ComboBoxItem Content="Islam"/>
                                     <ComboBoxItem Content="Christianity"/>
                                     <ComboBoxItem Content="Hinduism"/>
                                 </ComboBox>
+
 
                                 <TextBox
                                     materialDesign:HintAssist.Hint="Email"
@@ -227,7 +230,8 @@
                             </ComboBox>-->
 
                             <ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                                      materialDesign:HintAssist.Hint="Schooling Type">
+                                      materialDesign:HintAssist.Hint="Schooling Type"
+                                      SelectionChanged="SchoolingType_SelectionChanged">
                                 <ComboBoxItem Content="Conventional"/>
                                 <ComboBoxItem Content="Vocational"/>
                             </ComboBox>
@@ -244,7 +248,7 @@
                                     Height="40"
                                     FontSize="14"
                                     materialDesign:HintAssist.Hint="Date of Admission"
-                                    Text="{Binding student.DateOfAdmission}"
+                                    SelectedDate="{Binding student.DateOfAdmission}"
                                     Margin="0 0 0 8"
                                     Style="{StaticResource MaterialDesignDatePicker}"/>
 

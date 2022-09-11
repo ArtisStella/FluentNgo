@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Wpf.Ui.Controls;
+using MessageBox = System.Windows.MessageBox;
 
 namespace FluentNgo.Views.Components
 {
@@ -16,7 +17,6 @@ namespace FluentNgo.Views.Components
         {
             InitializeComponent();
             student = new Student();
-            student.GrNo = 1234;
             DataContext = this;
         }
 
@@ -42,6 +42,20 @@ namespace FluentNgo.Views.Components
                 if (child is Expander && child != sender as Expander)
                     ((Expander)child).IsExpanded = false;
             }
+        }
+
+        private void SchoolingType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBoxItem selectedItem = ((ComboBox)sender).SelectedItem as ComboBoxItem;
+            // MessageBox.Show(selectedItem.Content.ToString());
+            student.SchoolingType = selectedItem.Content.ToString();
+        }
+
+        private void Religion_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBoxItem selectedItem = ((ComboBox)sender).SelectedItem as ComboBoxItem;
+            // MessageBox.Show(selectedItem.Content.ToString());
+            student.Religion = selectedItem.Content.ToString();
         }
     }
 }

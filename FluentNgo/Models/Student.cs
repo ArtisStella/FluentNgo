@@ -55,7 +55,8 @@ namespace FluentNgo.Models
             Connection.Open();
             try
             {
-                Connection.Execute("INSERT INTO Students (GrNo, Name, FatherName, MotherName, Class, DOB, Address, PhoneNumber, Religion, NIC, DateOfAdmission, TotalFamilyMembers, FathersOccupation, FirstAdmittedClass, Grades, SchoolingType, Email) VALUES (@GrNo, @Name, @FatherName, @MotherName, @Class, @DOB, @Address, @PhoneNumber, @Religion, @NIC, @DateOfAdmission, @TotalFamilyMembers, @FathersOccupation, @FirstAdmittedClass, @Grades, @SchoolingType, @Email)", this);
+                Connection.Execute("INSERT INTO Students (GrNo, Name, FatherName, MotherName, Class, DOB, Address, PhoneNumber, Religion, NIC, DateOfAdmission, TotalFamilyMembers, FathersOccupation, FirstAdmittedClass, Grades, SchoolingType, Email) " +
+                    "VALUES (@GrNo, @Name, @FatherName, @MotherName, @Class, @DOB, @Address, @PhoneNumber, @Religion, @NIC, @DateOfAdmission, @TotalFamilyMembers, @FathersOccupation, @FirstAdmittedClass, @Grades, @SchoolingType, @Email)", this);
             }
             catch (Exception ex)
             {

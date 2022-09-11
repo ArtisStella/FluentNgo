@@ -64,6 +64,7 @@
                                 Height="32" Width="32" 
                                 Margin="8 0 0 0" Padding="0" 
                                 Icon="Delete16"
+                                Click="RemoveButton_Click"
                                 IsEnabled="{Binding AnyRowSelected}" />
 
                         <ui:Button x:Name="EditButton" 

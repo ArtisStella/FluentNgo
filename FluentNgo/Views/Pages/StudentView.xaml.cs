@@ -60,4 +60,10 @@ public partial class StudentView
         StudentViewModel studentVm = (StudentViewModel)this.DataContext;
         studentVm.AddStudent();
     }
+
+    private void RemoveButton_Click(object sender, RoutedEventArgs e)
+    {
+        StudentViewModel studentVm = (StudentViewModel)this.DataContext;
+        studentVm.RemoveStudent(StudentsDG.SelectedItem as Student);
+    }
 }
