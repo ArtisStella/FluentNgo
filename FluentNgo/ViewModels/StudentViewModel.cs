@@ -1,9 +1,11 @@
 ﻿using FluentNgo.Core;
 using FluentNgo.Models;
+using FluentNgo.Views;
 using FluentNgo.Views.Components;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Effects;
 
 namespace FluentNgo.ViewModels
 {
@@ -42,8 +44,13 @@ namespace FluentNgo.ViewModels
         public void AddStudent()
         {
             var studentForm = new StudentForm();
-            studentForm.Owner = Window.GetWindow(Application.Current.MainWindow);
+            var rootWindow = (Container)Window.GetWindow(Application.Current.MainWindow);
+            rootWindow.MainGrid.Effect = new BlurEffect();
+            studentForm.Owner = rootWindow;
+
             studentForm.ShowDialog();
+
+            rootWindow.MainGrid.Effect = null;
         }
     }
 }
