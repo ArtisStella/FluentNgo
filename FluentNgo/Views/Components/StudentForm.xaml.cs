@@ -25,6 +25,11 @@ namespace FluentNgo.Views.Components
             DialogResult = false;
         }
 
+        private void SubmitForm(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+        }
+
         private void SF_MouseDown(object sender, MouseButtonEventArgs e)
         {
             RootGrid.Focus();

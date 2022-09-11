@@ -100,13 +100,16 @@
                                     materialDesign:HintAssist.Hint="GR No"
                                     Text="{Binding student.GrNo}"
                                     Style="{StaticResource FormTextBox}"
-                                    VerticalAlignment="Top"/>
+                                    VerticalAlignment="Top"
+                                    MaxLength="4"/>
 
+                                
                                 <TextBox
-                                    materialDesign:HintAssist.Hint="CNIC"
-                                    Text="{Binding student.CNIC}"
+                                    materialDesign:HintAssist.Hint="B-Form Number"
+                                    Text="{Binding student.NIC}"
                                     Style="{StaticResource FormTextBox}"
                                     VerticalAlignment="Bottom"/>
+                                
                             </StackPanel>
 
                             <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
@@ -115,6 +118,39 @@
                                     materialDesign:HintAssist.Hint="Name"
                                     Text="{Binding student.Name}"
                                     Style="{StaticResource FormTextBox}"/>
+
+                                <DatePicker
+                                    Height="40"
+                                    FontSize="14"
+                                    materialDesign:HintAssist.Hint="Date of Birth"
+                                    Text="{Binding student.DOB}"
+                                    Margin="0 0 0 8"
+                                    Style="{StaticResource MaterialDesignDatePicker}"/>
+
+                                <TextBox
+                                    materialDesign:HintAssist.Hint="Address"
+                                    Text="{Binding student.Address}"
+                                    Style="{StaticResource FormTextBox}"/>
+                                
+                                <TextBox
+                                    materialDesign:HintAssist.Hint="Phone Number"
+                                    Text="{Binding student.PhoneNumber}"
+                                    Style="{StaticResource FormTextBox}"
+                                    MaxLength="11"/>
+
+                                <ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                      materialDesign:HintAssist.Hint="Religion">
+                                    <ComboBoxItem Content="Islam"/>
+                                    <ComboBoxItem Content="Christianity"/>
+                                    <ComboBoxItem Content="Hinduism"/>
+                                </ComboBox>
+
+                                <TextBox
+                                    materialDesign:HintAssist.Hint="Email"
+                                    Text="{Binding student.Email}"
+                                    Style="{StaticResource FormTextBox}"/>
+
+
 
                             </StackPanel>
                         </Grid>
@@ -148,6 +184,16 @@
                                 Text="{Binding student.MotherName}"
                                 Style="{StaticResource FormTextBox}"/>
 
+                            <TextBox
+                                materialDesign:HintAssist.Hint="Total Family Members"
+                                Text="{Binding student.TotalFamilyMembers}"
+                                Style="{StaticResource FormTextBox}"/>
+
+                            <TextBox
+                                materialDesign:HintAssist.Hint="Father Occupation"
+                                Text="{Binding student.FathersOccupation}"
+                                Style="{StaticResource FormTextBox}"/>
+
                         </StackPanel>
                     </ui:CardExpander>
 
@@ -179,15 +225,34 @@
                                 <ComboBoxItem Content="2"/>
                                 <ComboBoxItem Content="3"/>
                             </ComboBox>-->
-                            
+
+                            <ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                      materialDesign:HintAssist.Hint="Schooling Type">
+                                <ComboBoxItem Content="Conventional"/>
+                                <ComboBoxItem Content="Vocational"/>
+                            </ComboBox>
+
                             <TextBox
-                                materialDesign:HintAssist.Hint="Schooling Type"
-                                Text="{Binding student.SchoolingType}"
+                                materialDesign:HintAssist.Hint="Grades"
+                                Text="{Binding student.Grades}"
                                 Style="{StaticResource FormTextBox}"/>
+                            <TextBox
+                                materialDesign:HintAssist.Hint="First Admitted Class"
+                                Text="{Binding student.FirstAdmittedClass}"
+                                Style="{StaticResource FormTextBox}"/>
+                            <DatePicker
+                                    Height="40"
+                                    FontSize="14"
+                                    materialDesign:HintAssist.Hint="Date of Admission"
+                                    Text="{Binding student.DateOfAdmission}"
+                                    Margin="0 0 0 8"
+                                    Style="{StaticResource MaterialDesignDatePicker}"/>
+
                         </StackPanel>
                     </ui:CardExpander>
                 </StackPanel>
             </ScrollViewer>
+            
             <ui:Button
                 Grid.Row="2"
                 Icon="Checkmark12"
@@ -196,7 +261,7 @@
                 HorizontalAlignment="Right"
                 Margin="24 0"
                 Content="Submit"
-                />
+                Click="SubmitForm"/>
         </Grid>
     </Border>
 </Window>
