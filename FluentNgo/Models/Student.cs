@@ -49,13 +49,57 @@ namespace FluentNgo.Models
             return new List<Student>();
         }
 
-        public static Student StudentGetById(int Id)
+        public void StudentSave()
         {
-            using (var Connection = new SQLiteConnection(App.ConnectionString))
+            var Connection = new SQLiteConnection(App.ConnectionString);
+            Connection.Open();
+            try
             {
-                var output = Connection.Query<Student>($"SELECT * FROM Students WHERE GrNo = {Id}", new DynamicParameters()).First();
+                Connection.Execute("INSERT INTO Students (GrNo, Name, FatherName, MotherName, Class, DOB, Address, PhoneNumber, Religion, NIC, DateOfAdmission, TotalFamilyMembers, FathersOccupation, FirstAdmittedClass, Grades, SchoolingType, Email) VALUES (@GrNo, @Name, @FatherName, @MotherName, @Class, @DOB, @Address, @PhoneNumber, @Religion, @NIC, @DateOfAdmission, @TotalFamilyMembers, @FathersOccupation, @FirstAdmittedClass, @Grades, @SchoolingType, @Email)", this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
 
-                return output;
+        public void UpdateStudent()
+        {
+            var Connection = new SQLiteConnection(App.ConnectionString);
+            Connection.Open();
+            try
+            {
+                Connection.Execute("UPDATE Students SET Name = @Name, FatherName = @FatherName, FatherName = @FatherName, Class = @Class, DOB = @DOB, Address = @Address, PhoneNumber = @PhoneNumber, Religion = @Religion, NIC = @NIC, DateOfAdmission = @DateOfAdmission, TotalFamilyMembers = @TotalFamilyMembers, FathersOccupation = @FathersOccupation, FirstAdmittedClass = @FirstAdmittedClass, Grades = @Grades, SchoolingType = @SchoolingType, Email = @Email WHERE GrNo = @GrNo", this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
+        
+        public void DeleteStudent()
+        {
+            var Connection = new SQLiteConnection(App.ConnectionString);
+            Connection.Open();
+            try
+            {
+                Connection.Execute("DELETE FROM Students WHERE GrNo = @GrNo", this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                Connection.Close();
             }
         }
     }
