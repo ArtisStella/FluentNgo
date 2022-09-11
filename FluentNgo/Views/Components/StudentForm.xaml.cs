@@ -46,14 +46,14 @@ namespace FluentNgo.Views.Components
 
         private void SchoolingType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ComboBoxItem selectedItem = ((ComboBox)sender).SelectedItem as ComboBoxItem;
+            ComboBoxItem? selectedItem = ((ComboBox)sender).SelectedItem as ComboBoxItem;
             // MessageBox.Show(selectedItem.Content.ToString());
             student.SchoolingType = selectedItem.Content.ToString();
         }
 
         private void Religion_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ComboBoxItem selectedItem = ((ComboBox)sender).SelectedItem as ComboBoxItem;
+            ComboBoxItem? selectedItem = ((ComboBox)sender).SelectedItem as ComboBoxItem;
             // MessageBox.Show(selectedItem.Content.ToString());
             student.Religion = selectedItem.Content.ToString();
         }

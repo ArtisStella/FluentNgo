@@ -62,7 +62,10 @@ namespace FluentNgo.ViewModels
 
         public void RemoveStudent(Student student)
         {
-            student.DeleteStudent();
+            if (student.DeleteStudent())
+            {
+                Students.Remove(student);
+            }
         }
     }
 }
