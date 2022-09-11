@@ -82,37 +82,41 @@
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
 
-                            <Grid Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                                <Image x:Name="StudentImage" Width="64" Height="64"/>
-                                <ui:Button 
-                                    Width="64" Height="64"
-                                    Icon="ArrowUpload16" 
-                                    Background="Transparent" 
-                                    VerticalAlignment="Center" 
-                                    HorizontalAlignment="Center"/>
-                            </Grid>
+                            <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                                <TextBlock Text="Picture" FontSize="12" Margin="0 0 0 4"/>
+                                <Grid>
+                                    <Image x:Name="StudentImage" Width="64" Height="64"/>
+                                    <ui:Button 
+                                        Width="64" Height="64"
+                                        Icon="ArrowUpload16" 
+                                        Background="Transparent" 
+                                        VerticalAlignment="Center" 
+                                        HorizontalAlignment="Center"/>
+                                </Grid>
+                            </StackPanel>
 
                             <StackPanel Grid.Row="0">
                                 <TextBox
                                     materialDesign:HintAssist.Hint="GR No"
+                                    Text="{Binding student.GrNo}"
                                     Style="{StaticResource FormTextBox}"
                                     VerticalAlignment="Top"/>
 
                                 <TextBox
                                     materialDesign:HintAssist.Hint="CNIC"
+                                    Text="{Binding student.CNIC}"
                                     Style="{StaticResource FormTextBox}"
                                     VerticalAlignment="Bottom"/>
                             </StackPanel>
 
                             <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
-                        
+
                                 <TextBox
                                     materialDesign:HintAssist.Hint="Name"
+                                    Text="{Binding student.Name}"
                                     Style="{StaticResource FormTextBox}"/>
-                        
+
                             </StackPanel>
-
-
                         </Grid>
                     </ui:CardExpander>
 
@@ -136,10 +140,12 @@
                             
                             <TextBox
                                 materialDesign:HintAssist.Hint="Father Name"
+                                Text="{Binding student.FatherName}"
                                 Style="{StaticResource FormTextBox}"/>
 
                             <TextBox
                                 materialDesign:HintAssist.Hint="Mother Name"
+                                Text="{Binding student.MotherName}"
                                 Style="{StaticResource FormTextBox}"/>
 
                         </StackPanel>
@@ -161,7 +167,24 @@
                                 VerticalAlignment="Center"/>
                         </ui:CardExpander.Header>
 
+                        <StackPanel>
+                            <TextBox
+                                materialDesign:HintAssist.Hint="Class"
+                                Text="{Binding student.Class}"
+                                Style="{StaticResource FormTextBox}"/>
 
+                            <!--<ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                      materialDesign:HintAssist.Hint="Fuck">
+                                <ComboBoxItem Content="1"/>
+                                <ComboBoxItem Content="2"/>
+                                <ComboBoxItem Content="3"/>
+                            </ComboBox>-->
+                            
+                            <TextBox
+                                materialDesign:HintAssist.Hint="Schooling Type"
+                                Text="{Binding student.SchoolingType}"
+                                Style="{StaticResource FormTextBox}"/>
+                        </StackPanel>
                     </ui:CardExpander>
                 </StackPanel>
             </ScrollViewer>

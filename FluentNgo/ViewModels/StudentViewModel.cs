@@ -50,6 +50,7 @@ namespace FluentNgo.ViewModels
 
             studentForm.ShowDialog();
 
+            // MessageBox.Show(studentForm.student.GrNo.ToString());
             rootWindow.MainGrid.Effect = null;
         }
     }

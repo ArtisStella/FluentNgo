@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using FluentNgo.Models;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Wpf.Ui.Controls;
@@ -10,9 +11,13 @@ namespace FluentNgo.Views.Components
     /// </summary>
     public partial class StudentForm : Window
     {
+        public Student student { get; set; }
         public StudentForm()
         {
             InitializeComponent();
+            student = new Student();
+            student.GrNo = 1234;
+            DataContext = this;
         }
 
         private void CloseWindow(object sender, RoutedEventArgs e)
