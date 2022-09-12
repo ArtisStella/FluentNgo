@@ -140,8 +140,9 @@
 
                                 <ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                                       materialDesign:HintAssist.Hint="Religion"
-                                      SelectionChanged="Religion_SelectionChanged">
-                                
+                                      SelectionChanged="Religion_SelectionChanged"
+                                      Text="{Binding student.Religion}">
+                                    
                                     <ComboBoxItem Content="Islam"/>
                                     <ComboBoxItem Content="Christianity"/>
                                     <ComboBoxItem Content="Hinduism"/>
@@ -231,9 +232,12 @@
 
                             <ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                                       materialDesign:HintAssist.Hint="Schooling Type"
-                                      SelectionChanged="SchoolingType_SelectionChanged">
+                                      SelectionChanged="SchoolingType_SelectionChanged"
+                                      Text="{Binding student.SchoolingType}">
+                                
                                 <ComboBoxItem Content="Conventional"/>
                                 <ComboBoxItem Content="Vocational"/>
+
                             </ComboBox>
 
                             <TextBox
