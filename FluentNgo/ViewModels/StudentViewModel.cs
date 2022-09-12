@@ -62,7 +62,29 @@ namespace FluentNgo.ViewModels
 
         public void RemoveStudent(Student student)
         {
-            student.DeleteStudent();
+            if (student.DeleteStudent())
+            {
+                Students.Remove(student);
+            }
+        }
+
+        public void EditStudent(Student student)
+        {
+            var studentForm = new StudentForm(student);
+            var rootWindow = (Container)Window.GetWindow(Application.Current.MainWindow);
+
+            rootWindow.MainGrid.Effect = new BlurEffect();
+            studentForm.Owner = rootWindow;
+
+            if ((bool)studentForm.ShowDialog())
+            {
+                Student oStudent = studentForm.student;
+                oStudent.UpdateStudent();
+            }
+
+
+            // MessageBox.Show(studentForm.student.GrNo.ToString());
+            rootWindow.MainGrid.Effect = null;
         }
     }
 }
