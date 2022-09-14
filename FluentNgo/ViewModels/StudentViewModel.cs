@@ -2,15 +2,20 @@
 using FluentNgo.Models;
 using FluentNgo.Views;
 using FluentNgo.Views.Components;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Media.Effects;
 
 namespace FluentNgo.ViewModels
 {
     public class StudentViewModel : ObservableObject
     {
+        public CollectionView StudentCView { get; private set; }
+
         private ObservableCollection<Student> _students;
         public ObservableCollection<Student> Students
         {
@@ -35,10 +40,14 @@ namespace FluentNgo.ViewModels
                 OnPropertyChanged("AnyRowSelected");
             }
         }
+
         public StudentViewModel()
         {
             Students = new ObservableCollection<Student>(Student.StudentGetAll());
+            
             AnyRowSelected = false;
+
+            StudentCView = (CollectionView)CollectionViewSource.GetDefaultView(Students);
         }
 
         public void AddStudent()

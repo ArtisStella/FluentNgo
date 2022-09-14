@@ -14,8 +14,10 @@
     <ui:UiPage.DataContext>
         <viewModel:StudentViewModel/>
     </ui:UiPage.DataContext>
-    
+
     <ui:UiPage.Resources>
+        <CollectionViewSource x:Key="StudentCollection" Source="{Binding StudentCView}">
+        </CollectionViewSource>
         <Style x:Key="CellStyle" 
                BasedOn="{StaticResource {x:Type DataGridCell}}"
                TargetType="{x:Type DataGridCell}">
@@ -85,7 +87,7 @@
 
                 <!--DATA GRID-->
                 <DataGrid Grid.Row="1" x:Name="StudentsDG"
-                          ItemsSource="{Binding Path=Students}"
+                          ItemsSource="{Binding Students}"
                           AutoGenerateColumns="False"
                           CanUserAddRows="False"
                           CanUserReorderColumns="False"

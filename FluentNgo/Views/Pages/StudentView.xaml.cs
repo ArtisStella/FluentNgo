@@ -14,8 +14,6 @@ public partial class StudentView
     public StudentView()
     {
         InitializeComponent();
-        // StudentsDG.ItemsSource = new ObservableCollection<Student>(Student.StudentGetAll());
-        // MessageBox.Show("Student First");
     }
 
     private void StudentsDG_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
