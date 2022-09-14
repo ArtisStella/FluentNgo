@@ -70,4 +70,10 @@ public partial class StudentView
         StudentViewModel studentVm = (StudentViewModel)this.DataContext;
         studentVm.EditStudent(StudentsDG.SelectedItem as Student);
     }
+
+    private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        StudentViewModel studentVm = (StudentViewModel)this.DataContext;
+        studentVm.FilterDataGrid(((TextBox)sender).Text);
+    }
 }

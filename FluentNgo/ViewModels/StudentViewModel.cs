@@ -2,11 +2,9 @@
 using FluentNgo.Models;
 using FluentNgo.Views;
 using FluentNgo.Views.Components;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Threading.Tasks;
+using System.ComponentModel;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media.Effects;
 
@@ -14,7 +12,13 @@ namespace FluentNgo.ViewModels
 {
     public class StudentViewModel : ObservableObject
     {
-        public CollectionView StudentCView { get; private set; }
+        private ICollectionView _studentsCollection;
+
+        public ICollectionView StudentsCollection
+        {
+            get { return _studentsCollection; }
+            set { _studentsCollection = value; }
+        }
 
         private ObservableCollection<Student> _students;
         public ObservableCollection<Student> Students
@@ -47,13 +51,13 @@ namespace FluentNgo.ViewModels
             
             AnyRowSelected = false;
 
-            StudentCView = (CollectionView)CollectionViewSource.GetDefaultView(Students);
+            StudentsCollection = CollectionViewSource.GetDefaultView(Students);
         }
 
         public void AddStudent()
         {
             var studentForm = new StudentForm();
-            var rootWindow = (Container)Window.GetWindow(Application.Current.MainWindow);
+            var rootWindow = (Views.Container)Window.GetWindow(Application.Current.MainWindow);
             rootWindow.MainGrid.Effect = new BlurEffect();
             studentForm.Owner = rootWindow;
 
@@ -80,7 +84,7 @@ namespace FluentNgo.ViewModels
         public void EditStudent(Student student)
         {
             var studentForm = new StudentForm(student);
-            var rootWindow = (Container)Window.GetWindow(Application.Current.MainWindow);
+            var rootWindow = (Views.Container)Window.GetWindow(Application.Current.MainWindow);
 
 
 
@@ -96,6 +100,10 @@ namespace FluentNgo.ViewModels
 
             // MessageBox.Show(studentForm.student.GrNo.ToString());
             rootWindow.MainGrid.Effect = null;
+        }
+
+        public void FilterDataGrid(string query) {
+            
         }
     }
 }
