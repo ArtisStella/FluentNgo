@@ -45,6 +45,8 @@ namespace FluentNgo.ViewModels
             }
         }
 
+        private string FilterString { get; set; }
+
         public StudentViewModel()
         {
             Students = new ObservableCollection<Student>(Student.StudentGetAll());
@@ -103,7 +105,27 @@ namespace FluentNgo.ViewModels
         }
 
         public void FilterDataGrid(string query) {
-            
+
+            FilterString = query;
+
+            if (FilterString== "")
+            {
+                StudentsCollection.Filter = null;
+            } else
+            {
+                StudentsCollection.Filter = new System.Predicate<object>(FilterByName);
+            }
+        }
+
+        private bool FilterByName(object stud)
+        {
+            //  REMOVE ToLower() TO MAKE IT CASE SENSITIVE
+            Student? student = stud as Student;
+            if (student.Name == null)
+            {
+                return false;
+            }
+            return student.Name.ToLower().Contains(FilterString.ToLower());
         }
     }
 }
