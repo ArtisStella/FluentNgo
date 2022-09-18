@@ -10,10 +10,12 @@ namespace FluentNgo.ViewModels
     public class ViewModelRoot : ObservableObject
     {
         public StudentViewModel StudentVM { get; set; }
+        public DonorViewModel DonorVM { get; set; }
 
         public ViewModelRoot()
         {
             StudentVM = new StudentViewModel();
+            DonorVM = new DonorViewModel();
         }
     }
 }

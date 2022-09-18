@@ -2,8 +2,6 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using Wpf.Ui.Controls;
-using MessageBox = System.Windows.MessageBox;
 
 namespace FluentNgo.Views.Components
 {

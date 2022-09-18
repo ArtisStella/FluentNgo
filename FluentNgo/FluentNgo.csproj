@@ -58,7 +58,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\Pages\Donor.xaml.cs">
+    <Compile Update="Views\Pages\DonorView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Pages\StudentView.xaml.cs">
@@ -67,7 +67,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Page Update="Views\Pages\Donor.xaml">
+    <Page Update="Views\Pages\DonorView.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>

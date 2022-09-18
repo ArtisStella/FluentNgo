@@ -96,7 +96,7 @@
                     <ui:NavigationItem
                         Content="Donor"
                         Image="pack://application:,,,/Resources/microsoft-shell-monitor.ico"
-                        PageType="{x:Type pages:Donor}"
+                        PageType="{x:Type pages:DonorView}"
                         Tag="dashboard" />
                 </ui:NavigationFluent.Items>
             </ui:NavigationFluent>

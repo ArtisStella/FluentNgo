@@ -1,6 +1,5 @@
 ﻿using FluentNgo.Core;
 using FluentNgo.Models;
-using FluentNgo.Views;
 using FluentNgo.Views.Components;
 using System.Collections.ObjectModel;
 using System.ComponentModel;

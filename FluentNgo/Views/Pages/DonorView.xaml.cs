@@ -7,16 +7,16 @@ using System.Windows.Input;
 
 namespace FluentNgo.Views.Pages;
 
-public partial class StudentView
+public partial class DonorView
 {
-    StudentViewModel StudentVM { get; set; }
-    public StudentView()
+    DonorViewModel DonorVM { get; set; }
+    public DonorView()
     {
         InitializeComponent();
-        StudentVM = (StudentViewModel)this.DataContext;
+        DonorVM = (DonorViewModel)this.DataContext;
     }
 
-    private void StudentsDG_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+    private void DonorDG_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
     {
         if (sender != null)
         {
@@ -31,44 +31,44 @@ public partial class StudentView
 
     private void RefreshButton_Click(object sender, RoutedEventArgs e)
     {
-        var view = CollectionViewSource.GetDefaultView(StudentsDG.ItemsSource);
+        var view = CollectionViewSource.GetDefaultView(DonorDG.ItemsSource);
         view?.SortDescriptions.Clear();
 
-        foreach (var column in StudentsDG.Columns)
+        foreach (var column in DonorDG.Columns)
         {
             column.SortDirection = null;
         }
-        StudentsDG.UnselectAll();
+        DonorDG.UnselectAll();
         SearchBox.Text = "";
     }
 
-    private void StudentsDG_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    private void DonorDG_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         if (sender != null)
         {
             DataGrid dg = (DataGrid)sender;
-            StudentVM.AnyRowSelected = dg.SelectedItems.Count > 0;
+            DonorVM.AnyRowSelected = dg.SelectedItems.Count > 0;
         }
 
     }
 
     private void AddButton_Click(object sender, RoutedEventArgs e)
     {
-        StudentVM.AddStudent();
+        DonorVM.AddDonor();
     }
 
     private void RemoveButton_Click(object sender, RoutedEventArgs e)
     {
-        StudentVM.RemoveStudent(StudentsDG.SelectedItem as Student);
+        DonorVM.RemoveDonor(DonorDG.SelectedItem as Donor);
     }
 
     private void EditButton_Click(object sender, RoutedEventArgs e)
     {
-        StudentVM.EditStudent(StudentsDG.SelectedItem as Student);
+        DonorVM.EditDonor(DonorDG.SelectedItem as Donor);
     }
 
     private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
     {
-        StudentVM.FilterDataGrid(((TextBox)sender).Text);
+        DonorVM.FilterDataGrid(((TextBox)sender).Text);
     }
 }

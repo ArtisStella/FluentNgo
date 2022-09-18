@@ -1,7 +1,6 @@
 ﻿using Dapper;
 using System.Data.SQLite;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows;
 using System;
 
