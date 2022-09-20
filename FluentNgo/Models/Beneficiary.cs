@@ -1,39 +1,14 @@
-﻿using System;
+﻿using Dapper;
+using System.Data.SQLite;
 using System.Collections.Generic;
-using System.Text;
+using System.Windows;
+using System;
 
 namespace FluentNgo.Models
 {
     public class Beneficiary
     {
-        public Beneficiary() { }
-
-        public Beneficiary(int id, string name, string f_name, string m_name, string sp_name, string dob,
-            string address, string phone_no, string religion, string cnic, int t_family_members,
-            string employment_status, string occupation, string email, string academic_qual, string prof_qual,
-            int income, string help_desc)
-        {
-            ID = id;
-            Name = name;
-            FatherName = f_name;
-            MotherName = m_name;
-            SpouseName = sp_name;
-            DOB = dob;
-            Address = address;
-            PhoneNumber = phone_no;
-            Religion = religion;
-            CNIC = cnic;
-            TotalFamilyMembers = t_family_members;
-            EmploymentStatus = employment_status;
-            Occupation = occupation;
-            Email = email;
-            AcademicQualifs = academic_qual;
-            ProfessionalQualifs = prof_qual;
-            Income = income;
-            HelpDescrip = help_desc;
-        }
-
-        public int ID { get; set; }
+        public int BeneficiaryID { get; set; }
         public string Name { get; set; }
         public string FatherName { get; set; }
         public string MotherName { get; set; }
@@ -47,10 +22,98 @@ namespace FluentNgo.Models
         public string EmploymentStatus { get; set; }
         public string Occupation { get; set; }
         public string Email { get; set; }
-        public string AcademicQualifs { get; set; }
-        public string ProfessionalQualifs { get; set; }
+        public string AcademicQualifications { get; set; }
+        public string ProfessionalQualifications { get; set; }
         public int Income { get; set; }
-        public string HelpDescrip { get; set; }
+        public string HelpDescription { get; set; }
+
+        public static List<Beneficiary> BeneficiaryGetAll()
+        {
+            var Connection = new SQLiteConnection(App.ConnectionString);
+            Connection.Open();
+            try
+            {
+                var output = Connection.Query<Beneficiary>("SELECT * FROM Beneficiaries", new DynamicParameters());
+
+                return output.AsList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return new List<Beneficiary>();
+        }
+
+        public bool BeneficiarySave()
+        {
+            bool result = false;
+            var Connection = new SQLiteConnection(App.ConnectionString);
+            Connection.Open();
+            try
+            {
+                Connection.Execute("INSERT INTO Beneficiaries (BeneficiaryID, Name, FatherName, MotherName, SpouseName, DOB, Address, PhoneNumber, Religion, CNIC, TotalFamilyMembers, EmploymentStatus, Occupation, Email, AcademicQualifications, ProfessionalQualitications, Income, HelpDescription) " +
+                                   "VALUES (@BeneficiaryID, @Name, @FatherName, @MotherName, @SpouseName, @DOB, @Address, @PhoneNumber, @Religion, @CNIC, @TotalFamilyMembers, @EmploymentStatus, @Occupation, @Email, @AcademicQualifications, @ProfessionalQualitications, @Income, @HelpDescription)", this);
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                result = false;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return result;
+        }
+
+        public bool BeneficiaryUpdate()
+        {
+            bool result = false;
+            var Connection = new SQLiteConnection(App.ConnectionString);
+            Connection.Open();
+            try
+            {
+                Connection.Execute("UPDATE Beneficiaries SET Name = @Name, FatherName = @FatherName, MotherName = @MotherName, SpouseName = @SpouseName, DOB = @DOB, Address = @Address, PhoneNumber = @PhoneNumber, Religion = @Religion, CNIC = @CNIC, TotalFamilyMembers = @TotalFamilyMembers, EmploymentStatus = @EmploymentStatus, Occupation = @Occupation, Email = @Email, AcademicQualifications = @AcademicQualifications, ProfessionalQualitications = @ProfessionalQualitications, Income = @Income, HelpDescription = @HelpDescription WHERE BeneficiaryID = @BeneficiaryID", this);
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                result = false;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return result;
+        }
+
+        public bool BeneficiaryDelete()
+        {
+            bool result = false;
+            var Connection = new SQLiteConnection(App.ConnectionString);
+            Connection.Open();
+            try
+            {
+                Connection.Execute("DELETE FROM Beneficiaries WHERE BeneficiaryID = @BeneficiaryID", this);
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                result = false;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return result;
+        }
     }
 }
 
