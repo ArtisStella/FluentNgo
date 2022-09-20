@@ -10,18 +10,18 @@ namespace FluentNgo.Models
     {
         public int BeneficiaryID { get; set; }
         public string Name { get; set; }
+        public string DOB { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Address { get; set; }
+        public string CNIC { get; set; }
+        public string Religion { get; set; }
+        public string Email { get; set; }
         public string FatherName { get; set; }
         public string MotherName { get; set; }
         public string SpouseName { get; set; }
-        public string DOB { get; set; }
-        public string Address { get; set; }
-        public string PhoneNumber { get; set; }
-        public string Religion { get; set; }
-        public string CNIC { get; set; }
         public int TotalFamilyMembers { get; set; }
         public string EmploymentStatus { get; set; }
         public string Occupation { get; set; }
-        public string Email { get; set; }
         public string AcademicQualifications { get; set; }
         public string ProfessionalQualifications { get; set; }
         public int Income { get; set; }
