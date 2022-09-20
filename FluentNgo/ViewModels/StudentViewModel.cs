@@ -1,8 +1,10 @@
 ﻿using FluentNgo.Core;
 using FluentNgo.Models;
 using FluentNgo.Views.Components;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media.Effects;
@@ -106,13 +108,20 @@ namespace FluentNgo.ViewModels
         public void FilterDataGrid(string query) {
 
             FilterString = query;
+            bool containsInt = FilterString.Any(char.IsDigit);
+
 
             if (FilterString== "")
             {
                 StudentsCollection.Filter = null;
-            } else
+            }
+            else if(containsInt == false)
             {
                 StudentsCollection.Filter = new System.Predicate<object>(FilterByName);
+            }
+            else
+            {
+                StudentsCollection.Filter = new System.Predicate<object>(FilterByGrNo);
             }
         }
 
@@ -126,5 +135,12 @@ namespace FluentNgo.ViewModels
             }
             return student.Name.ToLower().Contains(FilterString.ToLower());
         }
+
+        private bool FilterByGrNo(object stud)
+        {
+            Student? student = stud as Student;
+            return student.GrNo.ToString().Contains(FilterString);
+        }
+
     }
 }
