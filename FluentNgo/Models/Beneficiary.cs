@@ -8,7 +8,7 @@ namespace FluentNgo.Models
 {
     public class Beneficiary
     {
-        public int BeneficiaryID { get; set; }
+        public int ID { get; set; }
         public string Name { get; set; }
         public string DOB { get; set; }
         public string PhoneNumber { get; set; }
@@ -25,7 +25,7 @@ namespace FluentNgo.Models
         public string AcademicQualifs { get; set; }
         public string ProfessionalQualifs { get; set; }
         public int Income { get; set; }
-        public string HelpDescription { get; set; }
+        public string HelpDescrip { get; set; }
 
         public static List<Beneficiary> BeneficiaryGetAll()
         {
@@ -55,8 +55,8 @@ namespace FluentNgo.Models
             Connection.Open();
             try
             {
-                Connection.Execute("INSERT INTO Beneficiaries (BeneficiaryID, Name, FatherName, MotherName, SpouseName, DOB, Address, PhoneNumber, Religion, CNIC, TotalFamilyMembers, EmploymentStatus, Occupation, Email, AcademicQualifications, ProfessionalQualitications, Income, HelpDescription) " +
-                                   "VALUES (@BeneficiaryID, @Name, @FatherName, @MotherName, @SpouseName, @DOB, @Address, @PhoneNumber, @Religion, @CNIC, @TotalFamilyMembers, @EmploymentStatus, @Occupation, @Email, @AcademicQualifications, @ProfessionalQualitications, @Income, @HelpDescription)", this);
+                Connection.Execute("INSERT INTO Beneficiaries (ID, Name, FatherName, MotherName, SpouseName, DOB, Address, PhoneNumber, Religion, CNIC, TotalFamilyMembers, EmploymentStatus, Occupation, Email, AcademicQualifs, ProfessionalQualifs, Income, HelpDescrip) " +
+                                   "VALUES (@ID, @Name, @FatherName, @MotherName, @SpouseName, @DOB, @Address, @PhoneNumber, @Religion, @CNIC, @TotalFamilyMembers, @EmploymentStatus, @Occupation, @Email, @AcademicQualifs, @ProfessionalQualifs, @Income, @HelpDescrip)", this);
                 result = true;
             }
             catch (Exception ex)
@@ -78,7 +78,7 @@ namespace FluentNgo.Models
             Connection.Open();
             try
             {
-                Connection.Execute("UPDATE Beneficiaries SET Name = @Name, FatherName = @FatherName, MotherName = @MotherName, SpouseName = @SpouseName, DOB = @DOB, Address = @Address, PhoneNumber = @PhoneNumber, Religion = @Religion, CNIC = @CNIC, TotalFamilyMembers = @TotalFamilyMembers, EmploymentStatus = @EmploymentStatus, Occupation = @Occupation, Email = @Email, AcademicQualifications = @AcademicQualifications, ProfessionalQualitications = @ProfessionalQualitications, Income = @Income, HelpDescription = @HelpDescription WHERE BeneficiaryID = @BeneficiaryID", this);
+                Connection.Execute("UPDATE Beneficiaries SET Name = @Name, FatherName = @FatherName, MotherName = @MotherName, SpouseName = @SpouseName, DOB = @DOB, Address = @Address, PhoneNumber = @PhoneNumber, Religion = @Religion, CNIC = @CNIC, TotalFamilyMembers = @TotalFamilyMembers, EmploymentStatus = @EmploymentStatus, Occupation = @Occupation, Email = @Email, AcademicQualifs = @AcademicQualifs, ProfessionalQualifs = @ProfessionalQualifs, Income = @Income, HelpDescrip = @HelpDescrip WHERE ID = @ID", this);
                 result = true;
             }
             catch (Exception ex)
@@ -100,7 +100,7 @@ namespace FluentNgo.Models
             Connection.Open();
             try
             {
-                Connection.Execute("DELETE FROM Beneficiaries WHERE BeneficiaryID = @BeneficiaryID", this);
+                Connection.Execute("DELETE FROM Beneficiaries WHERE ID = @ID", this);
                 result = true;
             }
             catch (Exception ex)

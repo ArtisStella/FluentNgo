@@ -104,7 +104,7 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="GR No"
                                             CanUserResize="False"
-                                            Binding="{Binding GrNo}"/>
+                                            Binding="{Binding ID}"/>
 
 
                         <DataGridTextColumn Header="Name"
@@ -119,14 +119,14 @@
                                             Binding="{Binding FatherName}"/>
 
 
-                        <DataGridTextColumn Header="Class"
+                        <DataGridTextColumn Header="Spouse Name"
                                             CanUserResize="False"
-                                            Binding="{Binding Class}"/>
+                                            Binding="{Binding SpouseName}"/>
 
 
-                        <DataGridTextColumn Header="Schooling Type"
+                        <DataGridTextColumn Header="Phone Number"
                                             CanUserResize="False"
-                                            Binding="{Binding SchoolingType}"/>
+                                            Binding="{Binding PhoneNumber}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
