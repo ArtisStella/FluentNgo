@@ -11,7 +11,6 @@ namespace FluentNgo.Views.Components
     public partial class BeneficiaryForm : Window
     {
         public Beneficiary beneficiary { get; set; }
-
         public BeneficiaryForm()
         {
             InitializeComponent();
@@ -19,13 +18,12 @@ namespace FluentNgo.Views.Components
             DataContext = this;
         }
 
-        public BeneficiaryForm(Beneficiary beneficiary)
+        public BeneficiaryForm(Beneficiary stud)
         {
             InitializeComponent();
-            this.beneficiary = beneficiary;
+            beneficiary = stud;
             DataContext = this;
         }
-
 
         private void CloseWindow(object sender, RoutedEventArgs e)
         {
@@ -49,6 +47,20 @@ namespace FluentNgo.Views.Components
                 if (child is Expander && child != sender as Expander)
                     ((Expander)child).IsExpanded = false;
             }
+        }
+
+        private void EmploymentStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBoxItem? selectedItem = ((ComboBox)sender).SelectedItem as ComboBoxItem;
+            // MessageBox.Show(selectedItem.Content.ToString());
+            beneficiary.EmploymentStatus = selectedItem.Content.ToString();
+        }
+
+        private void Religion_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBoxItem? selectedItem = ((ComboBox)sender).SelectedItem as ComboBoxItem;
+            // MessageBox.Show(selectedItem.Content.ToString());
+            beneficiary.Religion = selectedItem.Content.ToString();
         }
     }
 }

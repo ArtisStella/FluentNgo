@@ -100,10 +100,17 @@
                         Tag="dashboard" />
 
                     <ui:NavigationItem
+                        Content="Beneficiary"
+                        Image="pack://application:,,,/Resources/master_chief.jpg"
+                        PageType="{x:Type pages:BeneficiaryView}"
+                        Tag="dashboard" />
+                    
+                    <ui:NavigationItem
                         Content="Donor"
                         Image="pack://application:,,,/Resources/microsoft-shell-monitor.ico"
                         PageType="{x:Type pages:DonorView}"
                         Tag="dashboard" />
+
                 </ui:NavigationFluent.Items>
             </ui:NavigationFluent>
 

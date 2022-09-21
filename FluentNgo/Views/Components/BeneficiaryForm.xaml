@@ -105,7 +105,7 @@
 
 
                                 <TextBox
-                                    materialDesign:HintAssist.Hint="NIC"
+                                    materialDesign:HintAssist.Hint="CNIC"
                                     Text="{Binding beneficiary.CNIC}"
                                     Style="{StaticResource FormTextBox}"
                                     VerticalAlignment="Bottom"/>
@@ -209,15 +209,15 @@
 
                         <ui:CardExpander.Header>
                             <TextBlock 
-                                Text="Professional Details"
+                                Text="Beneficiary Details"
                                 FontSize="14"
                                 VerticalAlignment="Center"/>
                         </ui:CardExpander.Header>
 
                         <StackPanel>
                             <TextBox
-                                materialDesign:HintAssist.Hint="Class"
-                                Text="{Binding beneficiary.Class}"
+                                materialDesign:HintAssist.Hint="Occupation"
+                                Text="{Binding beneficiary.Occupation}"
                                 Style="{StaticResource FormTextBox}"/>
 
                             <!--<ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}"
@@ -228,30 +228,34 @@
                             </ComboBox>-->
 
                             <ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                                      materialDesign:HintAssist.Hint="Schooling Type"
-                                      SelectionChanged="SchoolingType_SelectionChanged"
-                                      Text="{Binding beneficiary.SchoolingType}">
+                                      materialDesign:HintAssist.Hint="Employment Status"
+                                      SelectionChanged="EmploymentStatus_SelectionChanged"
+                                      Text="{Binding beneficiary.EmploymentStatus}">
 
-                                <ComboBoxItem Content="Conventional"/>
-                                <ComboBoxItem Content="Vocational"/>
+                                <ComboBoxItem Content="Employed"/>
+                                <ComboBoxItem Content="Unemployed"/>
 
                             </ComboBox>
 
                             <TextBox
-                                materialDesign:HintAssist.Hint="Grades"
-                                Text="{Binding beneficiary.Grades}"
+                                materialDesign:HintAssist.Hint="Academic Qualifications"
+                                Text="{Binding beneficiary.AcademicQualifs}"
                                 Style="{StaticResource FormTextBox}"/>
+
                             <TextBox
-                                materialDesign:HintAssist.Hint="First Admitted Class"
-                                Text="{Binding beneficiary.FirstAdmittedClass}"
+                                materialDesign:HintAssist.Hint="Professional Qualifications"
+                                Text="{Binding beneficiary.ProfessionalQualifs}"
                                 Style="{StaticResource FormTextBox}"/>
-                            <DatePicker
-                                    Height="40"
-                                    FontSize="14"
-                                    materialDesign:HintAssist.Hint="Date of Admission"
-                                    SelectedDate="{Binding beneficiary.DateOfAdmission}"
-                                    Margin="0 0 0 8"
-                                    Style="{StaticResource MaterialDesignDatePicker}"/>
+
+                            <TextBox
+                                materialDesign:HintAssist.Hint="Income"
+                                Text="{Binding beneficiary.Income}"
+                                Style="{StaticResource FormTextBox}"/>
+
+                            <TextBox
+                                materialDesign:HintAssist.Hint="Help Description"
+                                Text="{Binding beneficiary.HelpDescrip}"
+                                Style="{StaticResource FormTextBox}"/>
 
                         </StackPanel>
                     </ui:CardExpander>

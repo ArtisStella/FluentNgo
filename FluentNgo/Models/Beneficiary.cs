@@ -22,8 +22,8 @@ namespace FluentNgo.Models
         public int TotalFamilyMembers { get; set; }
         public string EmploymentStatus { get; set; }
         public string Occupation { get; set; }
-        public string AcademicQualifications { get; set; }
-        public string ProfessionalQualifications { get; set; }
+        public string AcademicQualifs { get; set; }
+        public string ProfessionalQualifs { get; set; }
         public int Income { get; set; }
         public string HelpDescription { get; set; }
 
