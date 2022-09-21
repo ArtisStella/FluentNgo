@@ -92,6 +92,12 @@
                         Image="pack://application:,,,/Resources/microsoft-shell-workspace.ico"
                         PageType="{x:Type pages:StudentView}"
                         Tag="dashboard" />
+                    
+                    <ui:NavigationItem
+                        Content="Employee"
+                        Image="pack://application:,,,/Resources/microsoft-shell-accessibility.ico"
+                        PageType="{x:Type pages:EmployeeView}"
+                        Tag="dashboard" />
 
                     <ui:NavigationItem
                         Content="Donor"
