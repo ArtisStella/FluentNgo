@@ -12,6 +12,6 @@
     mc:Ignorable="d">
 
     <Grid>
-        <TextBlock Text="The cake is a lie!" />
+        <TextBlock FontSize="16" Text="Khalid-e-Asfan Nasfwan" />
     </Grid>
 </ui:UiPage>
