@@ -114,19 +114,19 @@ namespace FluentNgo.ViewModels
             }
             else
             {
-                BeneficiariesCollection.Filter = new System.Predicate<object>(FilterByName);
+                BeneficiariesCollection.Filter = new System.Predicate<object>(FilterBeneficiaries);
             }
         }
 
-        private bool FilterByName(object bene)
+        private bool FilterBeneficiaries(object bene)
         {
-            //  REMOVE ToLower() TO MAKE IT CASE SENSITIVE
             Beneficiary? beneficiary = bene as Beneficiary;
-            if (beneficiary.Name == null)
-            {
-                return false;
-            }
-            return beneficiary.Name.ToLower().Contains(FilterString.ToLower());
+            
+            //  REMOVE ToLower() TO MAKE IT CASE SENSITIVE
+            bool nameFilter = beneficiary.Name != null ? beneficiary.Name.ToLower().Contains(FilterString.ToLower()) : false;
+            bool idFilter = beneficiary.BeneficiaryID.ToString().Contains(FilterString.ToLower());
+            
+            return nameFilter || idFilter;
         }
     }
 }

@@ -117,32 +117,20 @@ namespace FluentNgo.ViewModels
             {
                 StudentsCollection.Filter = null;
             }
-            else if(containsInt == false)
-            {
-                StudentsCollection.Filter = new System.Predicate<object>(FilterByName);
-            }
             else
             {
-                StudentsCollection.Filter = new System.Predicate<object>(FilterByGrNo);
+                StudentsCollection.Filter = new System.Predicate<object>(FilterStudents);
             }
         }
 
-        private bool FilterByName(object stud)
-        {
-            //  REMOVE ToLower() TO MAKE IT CASE SENSITIVE
-            Student? student = stud as Student;
-            if (student.Name == null)
-            {
-                return false;
-            }
-            return student.Name.ToLower().Contains(FilterString.ToLower());
-        }
-
-        private bool FilterByGrNo(object stud)
+        private bool FilterStudents(object stud)
         {
             Student? student = stud as Student;
-            return student.GrNo.ToString().Contains(FilterString);
-        }
+            
+            bool nameFilter = student.Name == null ? false : student.Name.ToLower().Contains(FilterString.ToLower());
+            bool idFilter = student.GrNo.ToString().Contains(FilterString.ToLower());
 
+            return nameFilter || idFilter;
+        }
     }
 }
