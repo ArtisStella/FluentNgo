@@ -103,6 +103,7 @@
 
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="ID"
+                                            Width="70"
                                             CanUserResize="False"
                                             Binding="{Binding EmployeeID}"/>
 
