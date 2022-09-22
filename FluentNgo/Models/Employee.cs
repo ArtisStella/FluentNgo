@@ -61,7 +61,7 @@ namespace FluentNgo.Models
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                // MessageBox.Show(ex.ToString());
                 return false;
             }
             finally

@@ -9,19 +9,9 @@
 
   <ItemGroup>
     <None Remove="Data\MainDatabase.db" />
-    <None Remove="Resources\fluent-ui-microsoft.png" />
-    <None Remove="Resources\geo_icons.png" />
-    <None Remove="Resources\halo_infinite.jpg" />
-    <None Remove="Resources\master_chief.jpg" />
-    <None Remove="Resources\microsoft-icon-store.png" />
-    <None Remove="Resources\microsoft-shell-accessibility.ico" />
-    <None Remove="Resources\microsoft-shell-colors.ico" />
     <None Remove="Resources\microsoft-shell-desktop.ico" />
-    <None Remove="Resources\microsoft-shell-gallery.ico" />
     <None Remove="Resources\microsoft-shell-monitor.ico" />
-    <None Remove="Resources\microsoft-shell-settings.ico" />
     <None Remove="Resources\microsoft-shell-workspace.ico" />
-    <None Remove="Resources\the_witcher_wallpaper.jpg" />
     <None Remove="Resources\wpfui.png" />
     <None Remove="Resources\wpfui_full.png" />
   </ItemGroup>
@@ -40,19 +30,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\fluent-ui-microsoft.png" />
-    <Resource Include="Resources\geo_icons.png" />
-    <Resource Include="Resources\halo_infinite.jpg" />
-    <Resource Include="Resources\master_chief.jpg" />
-    <Resource Include="Resources\microsoft-icon-store.png" />
-    <Resource Include="Resources\microsoft-shell-accessibility.ico" />
-    <Resource Include="Resources\microsoft-shell-colors.ico" />
     <Resource Include="Resources\microsoft-shell-desktop.ico" />
-    <Resource Include="Resources\microsoft-shell-gallery.ico" />
     <Resource Include="Resources\microsoft-shell-monitor.ico" />
-    <Resource Include="Resources\microsoft-shell-settings.ico" />
     <Resource Include="Resources\microsoft-shell-workspace.ico" />
-    <Resource Include="Resources\the_witcher_wallpaper.jpg" />
     <Resource Include="Resources\wpfui.png" />
     <Resource Include="Resources\wpfui_full.png" />
   </ItemGroup>

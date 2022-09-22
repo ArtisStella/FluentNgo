@@ -86,7 +86,7 @@
 
                 <!--DATA GRID-->
                 <DataGrid Grid.Row="1" x:Name="BeneficiarysDG"
-                          ItemsSource="{Binding BeneficiarysCollection}"
+                          ItemsSource="{Binding BeneficiariesCollection}"
                           AutoGenerateColumns="False"
                           CanUserAddRows="False"
                           CanUserReorderColumns="False"

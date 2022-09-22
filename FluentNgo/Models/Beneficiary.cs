@@ -25,7 +25,7 @@ namespace FluentNgo.Models
         public string AcademicQualifications { get; set; }
         public string ProfessionalQualifications { get; set; }
         public int Income { get; set; }
-        public string HelpDescrip { get; set; }
+        public string HelpDescription { get; set; }
 
         public static List<Beneficiary> BeneficiaryGetAll()
         {
@@ -54,13 +54,13 @@ namespace FluentNgo.Models
             Connection.Open();
             try
             {
-                Connection.Execute("INSERT INTO Beneficiaries (ID, Name, FatherName, MotherName, SpouseName, DOB, Address, PhoneNumber, Religion, CNIC, TotalFamilyMembers, EmploymentStatus, Occupation, Email, AcademicQualifications, ProfessionalQualifications, Income, HelpDescrip) " +
-                                   "VALUES (@ID, @Name, @FatherName, @MotherName, @SpouseName, @DOB, @Address, @PhoneNumber, @Religion, @CNIC, @TotalFamilyMembers, @EmploymentStatus, @Occupation, @Email, @AcademicQualifications, @ProfessionalQualifications, @Income, @HelpDescrip)", this);
+                Connection.Execute("INSERT INTO Beneficiaries (BeneficiaryID, Name, FatherName, MotherName, SpouseName, DOB, Address, PhoneNumber, Religion, CNIC, TotalFamilyMembers, EmploymentStatus, Occupation, Email, AcademicQualifications, ProfessionalQualifications, Income, HelpDescription) " +
+                                   "VALUES (@BeneficiaryID, @Name, @FatherName, @MotherName, @SpouseName, @DOB, @Address, @PhoneNumber, @Religion, @CNIC, @TotalFamilyMembers, @EmploymentStatus, @Occupation, @Email, @AcademicQualifications, @ProfessionalQualifications, @Income, @HelpDescription)", this);
                 return true;
             }
             catch (Exception ex)
             {
-                // MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.ToString());
                 return false;
             }
             finally
@@ -75,7 +75,7 @@ namespace FluentNgo.Models
             Connection.Open();
             try
             {
-                Connection.Execute("UPDATE Beneficiaries SET Name = @Name, FatherName = @FatherName, MotherName = @MotherName, SpouseName = @SpouseName, DOB = @DOB, Address = @Address, PhoneNumber = @PhoneNumber, Religion = @Religion, CNIC = @CNIC, TotalFamilyMembers = @TotalFamilyMembers, EmploymentStatus = @EmploymentStatus, Occupation = @Occupation, Email = @Email, AcademicQualifications = @AcademicQualifications, ProfessionalQualifications = @ProfessionalQualifications, Income = @Income, HelpDescrip = @HelpDescrip WHERE ID = @ID", this);
+                Connection.Execute("UPDATE Beneficiaries SET Name = @Name, FatherName = @FatherName, MotherName = @MotherName, SpouseName = @SpouseName, DOB = @DOB, Address = @Address, PhoneNumber = @PhoneNumber, Religion = @Religion, CNIC = @CNIC, TotalFamilyMembers = @TotalFamilyMembers, EmploymentStatus = @EmploymentStatus, Occupation = @Occupation, Email = @Email, AcademicQualifications = @AcademicQualifications, ProfessionalQualifications = @ProfessionalQualifications, Income = @Income, HelpDescription = @HelpDescription WHERE BeneficiaryID = @BeneficiaryID", this);
                 return true;
             }
             catch (Exception ex)

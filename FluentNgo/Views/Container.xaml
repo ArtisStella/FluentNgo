@@ -95,13 +95,13 @@
                     
                     <ui:NavigationItem
                         Content="Employee"
-                        Image="pack://application:,,,/Resources/microsoft-shell-accessibility.ico"
+                        Image="pack://application:,,,/Resources/microsoft-shell-workspace.ico"
                         PageType="{x:Type pages:EmployeeView}"
                         Tag="dashboard" />
 
                     <ui:NavigationItem
                         Content="Beneficiary"
-                        Image="pack://application:,,,/Resources/master_chief.jpg"
+                        Image="pack://application:,,,/Resources/microsoft-shell-workspace.ico"
                         PageType="{x:Type pages:BeneficiaryView}"
                         Tag="dashboard" />
                     
