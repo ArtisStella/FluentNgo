@@ -61,18 +61,22 @@ namespace FluentNgo.ViewModels
         {
             var employeeForm = new EmployeeForm();
             var rootWindow = (Views.Container)Window.GetWindow(Application.Current.MainWindow);
+
             rootWindow.MainGrid.Effect = new BlurEffect();
             employeeForm.Owner = rootWindow;
 
             if ((bool)employeeForm.ShowDialog())
             {
                 Employee oEmployee = employeeForm.employee;
-                oEmployee.EmployeeSave();
-                Employees.Add(oEmployee);
+                if (oEmployee.EmployeeSave())
+                {
+                    Employees.Add(oEmployee);
+                } else
+                {
+                    MessageBox.Show("Unable to save data, try again.", "Save error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
 
-
-            // MessageBox.Show(employeeForm.employee.ID.ToString());
             rootWindow.MainGrid.Effect = null;
         }
 
@@ -89,19 +93,18 @@ namespace FluentNgo.ViewModels
             var employeeForm = new EmployeeForm(employee);
             var rootWindow = (Views.Container)Window.GetWindow(Application.Current.MainWindow);
 
-
-
             rootWindow.MainGrid.Effect = new BlurEffect();
             employeeForm.Owner = rootWindow;
 
             if ((bool)employeeForm.ShowDialog())
             {
                 Employee oEmployee = employeeForm.employee;
-                oEmployee.UpdateEmployee();
+                if (!oEmployee.UpdateEmployee())
+                {
+                    MessageBox.Show("Unable to save data, try again.", "Save error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
 
-
-            // MessageBox.Show(employeeForm.employee.ID.ToString());
             rootWindow.MainGrid.Effect = null;
         }
 

@@ -102,9 +102,9 @@
                     </DataGrid.CellStyle>
 
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="GR No"
+                        <DataGridTextColumn Header="ID"
                                             CanUserResize="False"
-                                            Binding="{Binding ID}"/>
+                                            Binding="{Binding BeneficiaryID}"/>
 
 
                         <DataGridTextColumn Header="Name"
@@ -121,6 +121,7 @@
 
                         <DataGridTextColumn Header="Spouse Name"
                                             CanUserResize="False"
+                                            Width="*"
                                             Binding="{Binding SpouseName}"/>
 
 

@@ -104,7 +104,7 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="ID"
                                             CanUserResize="False"
-                                            Binding="{Binding ID}"/>
+                                            Binding="{Binding EmployeeID}"/>
 
 
                         <DataGridTextColumn Header="Name"
@@ -121,6 +121,7 @@
 
                         <DataGridTextColumn Header="Spouse Name"
                                             CanUserResize="False"
+                                            Width="*"
                                             Binding="{Binding SpouseName}"/>
 
 
