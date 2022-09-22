@@ -8,7 +8,7 @@ namespace FluentNgo.Models
 {
     public class Employee
     {
-        public int ID { get; set; }
+        public int EmployeeID { get; set; }
         public string Name { get; set; }
         public string FatherName { get; set; }
         public string MotherName { get; set; }
@@ -22,8 +22,8 @@ namespace FluentNgo.Models
         public int InitialSalary { get; set; }
         public int CurrentSalary { get; set; }
         public string Email { get; set; }
-        public string AcademicQualifs { get; set; }
-        public string ProfessionalQualifs { get; set; }
+        public string AcademicQualifications { get; set; }
+        public string ProfessionalQualifications { get; set; }
         public string Occupation { get; set; }
         public int TotalYearsOfExperience { get; set; }
         public string CertificationSkills { get; set; }
@@ -40,80 +40,74 @@ namespace FluentNgo.Models
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                // MessageBox.Show(ex.ToString());
+                return new List<Employee>();
             }
             finally
             {
                 Connection.Close();
             }
-            return new List<Employee>();
         }
 
         public bool EmployeeSave()
         {
-            bool result = false;
             var Connection = new SQLiteConnection(App.ConnectionString);
             Connection.Open();
             try
             {
-                Connection.Execute("INSERT INTO Employees (ID, Name, FatherName, MotherName, SpouseName, DOB, Address, PhoneNumber, Religion, CNIC, TotalFamilyMembers, InitialSalary, CurrentSalary, Email, AcademicQualifs, ProfessionalQualifs, Occupation, TotalYearsOfExperience, CertificationSkills) " +
-                    "VALUES (@ID, @Name, @FatherName, @MotherName, @SpouseName, @DOB, @Address, @PhoneNumber, @Religion, @CNIC, @TotalFamilyMembers, @InitialSalary, @CurrentSalary, @Email, @AcademicQualifs, @ProfessionalQualifs, @Occupation, @TotalYearsOfExperience, @CertificationSkills)", this);
-                result = true;
+                Connection.Execute("INSERT INTO Employees (EmployeeID, Name, FatherName, MotherName, SpouseName, DOB, Address, PhoneNumber, Religion, CNIC, TotalFamilyMembers, InitialSalary, CurrentSalary, Email, AcademicQualifications, ProfessionalQualifications, Occupation, TotalYearsOfExperience, CertificationSkills) " +
+                    "VALUES (@EmployeeID, @Name, @FatherName, @MotherName, @SpouseName, @DOB, @Address, @PhoneNumber, @Religion, @CNIC, @TotalFamilyMembers, @InitialSalary, @CurrentSalary, @Email, @AcademicQualifications, @ProfessionalQualifications, @Occupation, @TotalYearsOfExperience, @CertificationSkills)", this);
+                return true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
-                result = false;
+                return false;
             }
             finally
             {
                 Connection.Close();
-            }
-            return result;
+            };
         }
 
         public bool UpdateEmployee()
         {
-            bool result = false;
             var Connection = new SQLiteConnection(App.ConnectionString);
             Connection.Open();
             try
             {
-                Connection.Execute("UPDATE Employees SET Name = @Name, FatherName = @FatherName, FatherName = @FatherName, SpouseName = @SpouseName, DOB = @DOB, Address = @Address, PhoneNumber = @PhoneNumber, Religion = @Religion, CNIC = @CNIC, TotalFamilyMembers = @TotalFamilyMembers, InitialSalary = @InitialSalary, CurrentSalary = @CurrentSalary, Email = @Email, AcademicQualifs = @AcademicQualifs, ProfessionalQualifs = @ProfessionalQualifs, Occupation = @Occupation, TotalYearsOfExperience = @TotalYearsOfExperience, CertificationSkills = @CertificationSkills WHERE ID = @ID", this);
-                result = true;
+                Connection.Execute("UPDATE Employees SET Name = @Name, FatherName = @FatherName, FatherName = @FatherName, SpouseName = @SpouseName, DOB = @DOB, Address = @Address, PhoneNumber = @PhoneNumber, Religion = @Religion, CNIC = @CNIC, TotalFamilyMembers = @TotalFamilyMembers, InitialSalary = @InitialSalary, CurrentSalary = @CurrentSalary, Email = @Email, AcademicQualifications = @AcademicQualifications, ProfessionalQualifications = @ProfessionalQualifications, Occupation = @Occupation, TotalYearsOfExperience = @TotalYearsOfExperience, CertificationSkills = @CertificationSkills WHERE EmployeeID = @EmployeeID", this);
+                return true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
-                result = false;
+                // MessageBox.Show(ex.ToString());
+                return false;
             }
             finally
             {
                 Connection.Close();
             }
-            return result;
         }
 
         public bool DeleteEmployee()
         {
-            bool result = false;
             var Connection = new SQLiteConnection(App.ConnectionString);
             Connection.Open();
             try
             {
-                Connection.Execute("DELETE FROM Employees WHERE ID = @ID", this);
-                result = true;
+                Connection.Execute("DELETE FROM Employees WHERE EmployeeID = @EmployeeID", this);
+                return true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
-                result = false;
+                // MessageBox.Show(ex.ToString());
+                return false;
             }
             finally
             {
                 Connection.Close();
             }
-            return result;
 
         }
     }

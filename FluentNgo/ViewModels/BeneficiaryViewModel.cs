@@ -65,12 +65,14 @@ namespace FluentNgo.ViewModels
             if ((bool)beneficiaryForm.ShowDialog())
             {
                 Beneficiary oBeneficiary = beneficiaryForm.beneficiary;
-                oBeneficiary.BeneficiarySave();
-                Beneficiaries.Add(oBeneficiary);
+                if (oBeneficiary.BeneficiarySave())
+                {
+                    Beneficiaries.Add(oBeneficiary);
+                } else
+                {
+                    MessageBox.Show("Unable to save data, try again.", "Save error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
-
-
-            // MessageBox.Show(beneficiaryForm.beneficiary.GrNo.ToString());
             rootWindow.MainGrid.Effect = null;
         }
 
@@ -87,19 +89,17 @@ namespace FluentNgo.ViewModels
             var beneficiaryForm = new BeneficiaryForm(beneficiary);
             var rootWindow = (Views.Container)Window.GetWindow(Application.Current.MainWindow);
 
-
-
             rootWindow.MainGrid.Effect = new BlurEffect();
             beneficiaryForm.Owner = rootWindow;
 
             if ((bool)beneficiaryForm.ShowDialog())
             {
                 Beneficiary oBeneficiary = beneficiaryForm.beneficiary;
-                oBeneficiary.BeneficiaryUpdate();
+                if (!oBeneficiary.BeneficiaryUpdate())
+                {
+                    MessageBox.Show("Unable to save data, try again.", "Save error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
-
-
-            // MessageBox.Show(beneficiaryForm.beneficiary.GrNo.ToString());
             rootWindow.MainGrid.Effect = null;
         }
 

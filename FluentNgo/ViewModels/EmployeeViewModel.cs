@@ -140,7 +140,7 @@ namespace FluentNgo.ViewModels
         private bool FilterByID(object stud)
         {
             Employee? employee = stud as Employee;
-            return employee.ID.ToString().Contains(FilterString);
+            return employee.EmployeeID.ToString().Contains(FilterString);
         }
 
     }

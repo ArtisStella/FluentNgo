@@ -65,12 +65,15 @@ namespace FluentNgo.ViewModels
             if ((bool)donorForm.ShowDialog())
             {
                 Donor oDonor = donorForm.donor;
-                oDonor.DonorSave();
-                Donors.Add(oDonor);
+                if (oDonor.DonorSave())
+                {
+                    Donors.Add(oDonor);
+                } else
+                {
+                    MessageBox.Show("Unable to save data, try again.", "Save error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
 
-
-            // MessageBox.Show(donorForm.donor.GrNo.ToString());
             rootWindow.MainGrid.Effect = null;
         }
 
@@ -95,11 +98,13 @@ namespace FluentNgo.ViewModels
             if ((bool)donorForm.ShowDialog())
             {
                 Donor oDonor = donorForm.donor;
-                oDonor.UpdateDonor();
+                if (!oDonor.UpdateDonor())
+                {
+                    MessageBox.Show("Unable to save data, try again.", "Save error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
             }
 
-
-            // MessageBox.Show(donorForm.donor.GrNo.ToString());
             rootWindow.MainGrid.Effect = null;
         }
 

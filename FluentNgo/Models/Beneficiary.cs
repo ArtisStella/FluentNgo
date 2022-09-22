@@ -8,7 +8,7 @@ namespace FluentNgo.Models
 {
     public class Beneficiary
     {
-        public int ID { get; set; }
+        public int BeneficiaryID { get; set; }
         public string Name { get; set; }
         public string DOB { get; set; }
         public string PhoneNumber { get; set; }
@@ -22,8 +22,8 @@ namespace FluentNgo.Models
         public int TotalFamilyMembers { get; set; }
         public string EmploymentStatus { get; set; }
         public string Occupation { get; set; }
-        public string AcademicQualifs { get; set; }
-        public string ProfessionalQualifs { get; set; }
+        public string AcademicQualifications { get; set; }
+        public string ProfessionalQualifications { get; set; }
         public int Income { get; set; }
         public string HelpDescrip { get; set; }
 
@@ -39,80 +39,74 @@ namespace FluentNgo.Models
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                // MessageBox.Show(ex.ToString());
+                return new List<Beneficiary>();
             }
             finally
             {
                 Connection.Close();
             }
-            return new List<Beneficiary>();
         }
 
         public bool BeneficiarySave()
         {
-            bool result = false;
             var Connection = new SQLiteConnection(App.ConnectionString);
             Connection.Open();
             try
             {
-                Connection.Execute("INSERT INTO Beneficiaries (ID, Name, FatherName, MotherName, SpouseName, DOB, Address, PhoneNumber, Religion, CNIC, TotalFamilyMembers, EmploymentStatus, Occupation, Email, AcademicQualifs, ProfessionalQualifs, Income, HelpDescrip) " +
-                                   "VALUES (@ID, @Name, @FatherName, @MotherName, @SpouseName, @DOB, @Address, @PhoneNumber, @Religion, @CNIC, @TotalFamilyMembers, @EmploymentStatus, @Occupation, @Email, @AcademicQualifs, @ProfessionalQualifs, @Income, @HelpDescrip)", this);
-                result = true;
+                Connection.Execute("INSERT INTO Beneficiaries (ID, Name, FatherName, MotherName, SpouseName, DOB, Address, PhoneNumber, Religion, CNIC, TotalFamilyMembers, EmploymentStatus, Occupation, Email, AcademicQualifications, ProfessionalQualifications, Income, HelpDescrip) " +
+                                   "VALUES (@ID, @Name, @FatherName, @MotherName, @SpouseName, @DOB, @Address, @PhoneNumber, @Religion, @CNIC, @TotalFamilyMembers, @EmploymentStatus, @Occupation, @Email, @AcademicQualifications, @ProfessionalQualifications, @Income, @HelpDescrip)", this);
+                return true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
-                result = false;
+                // MessageBox.Show(ex.ToString());
+                return false;
             }
             finally
             {
                 Connection.Close();
             }
-            return result;
         }
 
         public bool BeneficiaryUpdate()
         {
-            bool result = false;
             var Connection = new SQLiteConnection(App.ConnectionString);
             Connection.Open();
             try
             {
-                Connection.Execute("UPDATE Beneficiaries SET Name = @Name, FatherName = @FatherName, MotherName = @MotherName, SpouseName = @SpouseName, DOB = @DOB, Address = @Address, PhoneNumber = @PhoneNumber, Religion = @Religion, CNIC = @CNIC, TotalFamilyMembers = @TotalFamilyMembers, EmploymentStatus = @EmploymentStatus, Occupation = @Occupation, Email = @Email, AcademicQualifs = @AcademicQualifs, ProfessionalQualifs = @ProfessionalQualifs, Income = @Income, HelpDescrip = @HelpDescrip WHERE ID = @ID", this);
-                result = true;
+                Connection.Execute("UPDATE Beneficiaries SET Name = @Name, FatherName = @FatherName, MotherName = @MotherName, SpouseName = @SpouseName, DOB = @DOB, Address = @Address, PhoneNumber = @PhoneNumber, Religion = @Religion, CNIC = @CNIC, TotalFamilyMembers = @TotalFamilyMembers, EmploymentStatus = @EmploymentStatus, Occupation = @Occupation, Email = @Email, AcademicQualifications = @AcademicQualifications, ProfessionalQualifications = @ProfessionalQualifications, Income = @Income, HelpDescrip = @HelpDescrip WHERE ID = @ID", this);
+                return true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
-                result = false;
+                // MessageBox.Show(ex.ToString());
+                return false;
             }
             finally
             {
                 Connection.Close();
             }
-            return result;
         }
 
         public bool BeneficiaryDelete()
         {
-            bool result = false;
             var Connection = new SQLiteConnection(App.ConnectionString);
             Connection.Open();
             try
             {
-                Connection.Execute("DELETE FROM Beneficiaries WHERE ID = @ID", this);
-                result = true;
+                Connection.Execute("DELETE FROM Beneficiaries WHERE BeneficiaryID = @BeneficiaryID", this);
+                return true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
-                result = false;
+                // MessageBox.Show(ex.ToString());
+                return false;
             }
             finally
             {
                 Connection.Close();
             }
-            return result;
         }
     }
 }

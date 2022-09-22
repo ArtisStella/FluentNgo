@@ -98,7 +98,7 @@
                             <StackPanel Grid.Row="0">
                                 <TextBox
                                     materialDesign:HintAssist.Hint="Beneficiary ID"
-                                    Text="{Binding beneficiary.ID}"
+                                    Text="{Binding beneficiary.BeneficiaryID}"
                                     Style="{StaticResource FormTextBox}"
                                     VerticalAlignment="Top"
                                     MaxLength="4"/>
@@ -220,13 +220,6 @@
                                 Text="{Binding beneficiary.Occupation}"
                                 Style="{StaticResource FormTextBox}"/>
 
-                            <!--<ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                                      materialDesign:HintAssist.Hint="Fuck">
-                                <ComboBoxItem Content="1"/>
-                                <ComboBoxItem Content="2"/>
-                                <ComboBoxItem Content="3"/>
-                            </ComboBox>-->
-
                             <ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                                       materialDesign:HintAssist.Hint="Employment Status"
                                       SelectionChanged="EmploymentStatus_SelectionChanged"
@@ -239,12 +232,12 @@
 
                             <TextBox
                                 materialDesign:HintAssist.Hint="Academic Qualifications"
-                                Text="{Binding beneficiary.AcademicQualifs}"
+                                Text="{Binding beneficiary.AcademicQualifications}"
                                 Style="{StaticResource FormTextBox}"/>
 
                             <TextBox
                                 materialDesign:HintAssist.Hint="Professional Qualifications"
-                                Text="{Binding beneficiary.ProfessionalQualifs}"
+                                Text="{Binding beneficiary.ProfessionalQualifications}"
                                 Style="{StaticResource FormTextBox}"/>
 
                             <TextBox
@@ -254,7 +247,7 @@
 
                             <TextBox
                                 materialDesign:HintAssist.Hint="Help Description"
-                                Text="{Binding beneficiary.HelpDescrip}"
+                                Text="{Binding beneficiary.HelpDescription}"
                                 Style="{StaticResource FormTextBox}"/>
 
                         </StackPanel>

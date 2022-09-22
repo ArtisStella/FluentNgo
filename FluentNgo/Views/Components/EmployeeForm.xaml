@@ -97,8 +97,8 @@
 
                             <StackPanel Grid.Row="0">
                                 <TextBox
-                                    materialDesign:HintAssist.Hint="ID"
-                                    Text="{Binding employee.ID}"
+                                    materialDesign:HintAssist.Hint="Employee ID"
+                                    Text="{Binding employee.EmployeeID}"
                                     Style="{StaticResource FormTextBox}"
                                     VerticalAlignment="Top"
                                     MaxLength="4"/>
@@ -229,12 +229,12 @@
 
                             <TextBox
                                 materialDesign:HintAssist.Hint="Academic Qualifications"
-                                Text="{Binding employee.AcademicQualifs}"
+                                Text="{Binding employee.AcademicQualifications}"
                                 Style="{StaticResource FormTextBox}"/>
                             
                             <TextBox
                                 materialDesign:HintAssist.Hint="Professional Qualifications"
-                                Text="{Binding employee.ProfessionalQualifs}"
+                                Text="{Binding employee.ProfessionalQualifications}"
                                 Style="{StaticResource FormTextBox}"/>
                             
                             <TextBox

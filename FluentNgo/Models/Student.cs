@@ -39,80 +39,74 @@ namespace FluentNgo.Models
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                // MessageBox.Show(ex.ToString());
+                return new List<Student>();
             }
             finally
             {
                 Connection.Close();
             }
-            return new List<Student>();
         }
 
         public bool StudentSave()
         {
-            bool result = false;
             var Connection = new SQLiteConnection(App.ConnectionString);
             Connection.Open();
             try
             {
                 Connection.Execute("INSERT INTO Students (GrNo, Name, FatherName, MotherName, Class, DOB, Address, PhoneNumber, Religion, NIC, DateOfAdmission, TotalFamilyMembers, FathersOccupation, FirstAdmittedClass, Grades, SchoolingType, Email) " +
                     "VALUES (@GrNo, @Name, @FatherName, @MotherName, @Class, @DOB, @Address, @PhoneNumber, @Religion, @NIC, @DateOfAdmission, @TotalFamilyMembers, @FathersOccupation, @FirstAdmittedClass, @Grades, @SchoolingType, @Email)", this);
-                result = true;
+                return true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
-                result = false;
+                // MessageBox.Show(ex.ToString());
+                return false;
             }
             finally
             {
                 Connection.Close();
             }
-            return result;
         }
 
         public bool UpdateStudent()
         {
-            bool result = false;
             var Connection = new SQLiteConnection(App.ConnectionString);
             Connection.Open();
             try
             {
                 Connection.Execute("UPDATE Students SET Name = @Name, FatherName = @FatherName, FatherName = @FatherName, Class = @Class, DOB = @DOB, Address = @Address, PhoneNumber = @PhoneNumber, Religion = @Religion, NIC = @NIC, DateOfAdmission = @DateOfAdmission, TotalFamilyMembers = @TotalFamilyMembers, FathersOccupation = @FathersOccupation, FirstAdmittedClass = @FirstAdmittedClass, Grades = @Grades, SchoolingType = @SchoolingType, Email = @Email WHERE GrNo = @GrNo", this);
-                result = true;
+                return true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
-                result = false;
+                // MessageBox.Show(ex.ToString());
+                return false;
             }
             finally
             {
                 Connection.Close();
             }
-            return result;
         }
         
         public bool DeleteStudent()
         {
-            bool result = false;
             var Connection = new SQLiteConnection(App.ConnectionString);
             Connection.Open();
             try
             {
                 Connection.Execute("DELETE FROM Students WHERE GrNo = @GrNo", this);
-                result = true;
+                return true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
-                result = false;
+                // MessageBox.Show(ex.ToString());
+                return false;
             }
             finally
             {
                 Connection.Close();
             }
-            return result;
         }
     }
 }

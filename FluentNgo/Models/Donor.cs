@@ -28,80 +28,74 @@ namespace FluentNgo.Models
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                // MessageBox.Show(ex.ToString());
+                return new List<Donor>();
             }
             finally
             {
                 Connection.Close();
             }
-            return new List<Donor>();
         }
 
         public bool DonorSave()
         {
-            bool result = false;
             var Connection = new SQLiteConnection(App.ConnectionString);
             Connection.Open();
             try
             {
                 Connection.Execute("INSERT INTO Donors (DonorID, Name, Organization, Address, PhoneNumber, Email, DonationDescription) " +
                                    "VALUES (@DonorID, @Name, @Organization, @Address, @PhoneNumber, @Email, @DonationDescription)", this);
-                result = true;
+                return true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
-                result = false;
+                // MessageBox.Show(ex.ToString());
+                return false;
             }
             finally
             {
                 Connection.Close();
             }
-            return result;
         }
 
         public bool UpdateDonor()
         {
-            bool result = false;
             var Connection = new SQLiteConnection(App.ConnectionString);
             Connection.Open();
             try
             {
                 Connection.Execute("UPDATE Donors SET Name = @Name, Organization = @Organization, Address = @Address, PhoneNumber = @PhoneNumber, Email = @Email, DonationDescription = @DonationDescription WHERE DonorID = @DonorID", this);
-                result = true;
+                return true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
-                result = false;
+                // MessageBox.Show(ex.ToString());
+                return false;
             }
             finally
             {
                 Connection.Close();
             }
-            return result;
         }
 
         public bool DeleteDonor()
         {
-            bool result = false;
             var Connection = new SQLiteConnection(App.ConnectionString);
             Connection.Open();
             try
             {
                 Connection.Execute("DELETE FROM Donors WHERE DonorID  = @DonorID", this);
-                result = true;
+                return true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
-                result = false;
+                // MessageBox.Show(ex.ToString());
+                return false;
             }
             finally
             {
                 Connection.Close();
             }
-            return result;
         }
     }
 }

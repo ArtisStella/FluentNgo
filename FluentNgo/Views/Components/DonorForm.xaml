@@ -83,7 +83,7 @@
 
                         <StackPanel Grid.Row="0">
                             <TextBox
-                                    materialDesign:HintAssist.Hint="ID"
+                                    materialDesign:HintAssist.Hint="Donor ID"
                                     Text="{Binding donor.DonorID}"
                                     Style="{StaticResource FormTextBox}"
                                     VerticalAlignment="Top"

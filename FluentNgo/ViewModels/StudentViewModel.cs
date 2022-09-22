@@ -67,12 +67,15 @@ namespace FluentNgo.ViewModels
             if ((bool)studentForm.ShowDialog())
             {
                 Student oStudent = studentForm.student;
-                oStudent.StudentSave();
-                Students.Add(oStudent);
+                if (oStudent.StudentSave())
+                {
+                    Students.Add(oStudent);
+                } else
+                {
+                    MessageBox.Show("Unable to save data, try again.", "Save error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
-            
 
-            // MessageBox.Show(studentForm.student.GrNo.ToString());
             rootWindow.MainGrid.Effect = null;
         }
 
@@ -89,19 +92,18 @@ namespace FluentNgo.ViewModels
             var studentForm = new StudentForm(student);
             var rootWindow = (Views.Container)Window.GetWindow(Application.Current.MainWindow);
 
-
-
             rootWindow.MainGrid.Effect = new BlurEffect();
             studentForm.Owner = rootWindow;
 
             if ((bool)studentForm.ShowDialog())
             {
                 Student oStudent = studentForm.student;
-                oStudent.UpdateStudent();
+                if (!oStudent.UpdateStudent())
+                {
+                    MessageBox.Show("Unable to save data, try again.", "Save error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
 
-
-            // MessageBox.Show(studentForm.student.GrNo.ToString());
             rootWindow.MainGrid.Effect = null;
         }
 
