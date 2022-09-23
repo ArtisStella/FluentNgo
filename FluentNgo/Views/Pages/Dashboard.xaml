@@ -12,6 +12,6 @@
     mc:Ignorable="d">
 
     <Grid>
-        <TextBlock FontSize="16" Text="Khalid-e-Asfan Nasfwan" />
+        <TextBlock FontSize="16" Text="Database Managment System for Students, Employees, Beneficiaries and Donors Data." />
     </Grid>
 </ui:UiPage>

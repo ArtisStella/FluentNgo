@@ -67,7 +67,7 @@
                     Grid.Column="1"
                     Margin="12,0,0,0"
                     VerticalAlignment="Center">
-                    <TextBlock FontWeight="Medium" Text="Ngo App" />
+                    <TextBlock FontWeight="Medium" Text="Anjuman Mufad-e-Niswan" />
                     <TextBlock x:Name="DateTB" Foreground="{ui:ThemeResource TextFillColorTertiaryBrush}"/>
                 </StackPanel>
             </Grid>
