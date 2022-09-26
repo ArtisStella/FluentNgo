@@ -108,7 +108,8 @@
                                     materialDesign:HintAssist.Hint="B-Form Number"
                                     Text="{Binding student.NIC}"
                                     Style="{StaticResource FormTextBox}"
-                                    VerticalAlignment="Bottom"/>
+                                    VerticalAlignment="Bottom"
+                                    MaxLength="13"/>
                                 
                             </StackPanel>
 

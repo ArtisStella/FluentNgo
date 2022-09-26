@@ -108,7 +108,9 @@
                                     materialDesign:HintAssist.Hint="CNIC"
                                     Text="{Binding beneficiary.CNIC}"
                                     Style="{StaticResource FormTextBox}"
-                                    VerticalAlignment="Bottom"/>
+                                    VerticalAlignment="Bottom"
+                                    MaxLength="13"/>
+
 
                             </StackPanel>
 
